@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Appclacks on Appclacks documentation</title>
+    <link>http://example.org/index.html</link>
+    <description>Recent content in Appclacks on Appclacks documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started</title>
+      <link>http://example.org/getting-started/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/getting-started/index.html</guid>
+      <description>Creating your organization Appclacks organizations are entities that can hold several accounts.
+Appclacks is currently in Alpha. To use the platform, you should subscribe to it on the Appclacks main website. You will then receive an email announcing that your organization is enabled. This step can take up to a day.
+The email will also provide you the ID of your organization.
+For now, an organization can only contain one account that is automatically generated when the organization is created.</description>
+    </item>
+    <item>
+      <title>Guides</title>
+      <link>http://example.org/guides/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://example.org/guides/index.html</guid>
+      <description>This series of guides explain how to use the Appclacks cloud platform. The reading of the Getting Started section is recommended before reading the guides.
+Don&amp;rsquo;t hesitate to use the --help flag on commands to list all available options.
+You can also use the --output json flag on commands to get the JSON payload returned by the Appclacks API.</description>
+    </item>
+  </channel>
+</rss>

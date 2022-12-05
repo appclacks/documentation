@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://example.org/getting-started/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/guides/healthcheck/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/guides/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/guides/authentication/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/guides/metrics/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/guides/private-infrastructure/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/categories/index.html</loc>
+  </url>
+  <url>
+    <loc>http://example.org/tags/index.html</loc>
+  </url>
+</urlset>

@@ -40,6 +40,8 @@ Use the `--help` command to get details about health checks, for example `appcla
 
 The `appclacks healthcheck list` and `appclacks healthcheck get --id <healthcheck_id>` commands can be used to retrieve health checks information.
 
+You can update an existing health check with the `appclacks healthcheck <type> update` commands. All health checks fields which you want to configure should be specified, the update is a replace.
+
 ## Health checks results
 
 Each time a health check is executed by the Appclacks cloud platform, its result is stored and available through the Appclacks API.
@@ -55,4 +57,3 @@ You can also configure which results you want to retrieve with the flags:
 - `--end-date`: The end date (UTC) for retrieving results, in the format `2006-01-02T15:04:05`.
 - `--error`: Retrieve only failed health checks.
 - `--success`: Retrieve only successful health checks.
-

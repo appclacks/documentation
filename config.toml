@@ -5,3 +5,17 @@ theme = 'relearn'
 
 [params]
 themeVariant = "appclacks"
+alwaysopen = true
+disableInlineCopyToClipBoard = true
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+identifier = "github"
+url = "https://github.com/appclacks/documentation"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-fw fa-camera'></i> Appclacks home page"
+identifier = "homepage"
+url = "https://appclacks.com"
+weight = 12

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.107.0">
+    <meta name="generator" content="Relearn 5.7.0+tip">
+    <meta name="description" content="">
+    <title>Getting Started :: Appclacks documentation</title>
+    <link href="/getting-started/index.xml" rel="alternate" type="application/rss+xml" title="Getting Started :: Appclacks documentation">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="/css/fontawesome-all.min.css?1670279544" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1670279544" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1670279544" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1670279544" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1670279544" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1670279544" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1670279544" rel="stylesheet">
+    <link href="/css/nucleus.css?1670279544" rel="stylesheet">
+    <link href="/css/fonts.css?1670279544" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1670279544" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1670279544" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1670279544" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1670279544" rel="stylesheet">
+    <link href="/css/variant.css?1670279544" rel="stylesheet">
+    <link href="/css/print.css?1670279544" rel="stylesheet" media="print">
+    <script src="/js/url.js?1670279544"></script>
+    <script src="/js/variant.js?1670279544"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      window.T_No_results_found = 'No results found for \u0022{0}\u0022';
+      window.T_N_results_found = '{1} results found for \u0022{0}\u0022';
+      // some further base stuff
+      var baseUriFull='http:\/\/example.org/';
+      window.variants && variants.init( [ 'appclacks' ] );
+    </script>
+    <script src="/js/jquery.min.js?1670279544" defer></script>
+  </head>
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/getting-started/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable" dir="ltr">
+        <div>
+          <div class="navigation">
+            <a class="nav nav-next" href="/guides/index.html" title="Guides (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+            <a class="nav nav-prev" href="/index.html" title="Appclacks (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Appclacks</span></a><meta itemprop="position" content="1"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Getting Started</span><meta itemprop="position" content="2"></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper" dir="ltr">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#creating-your-organization">Creating your organization</a></li>
+    <li><a href="#installing-the-appclacks-cli">Installing the Appclacks CLI</a></li>
+    <li><a href="#authentication">Authentication</a></li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <article class="default">
+<h1 id="getting-started">Getting Started</h1>
+
+<h2 id="creating-your-organization">Creating your organization</h2>
+<p>Appclacks organizations are entities that can hold several accounts.</p>
+<p>Appclacks is currently in Alpha. To use the platform, you should subscribe to it on the Appclacks <a href="https://appclacks.com/#register">main website</a>. You will then receive an email announcing that your organization is enabled. This step can take up to a day.</p>
+<p>The email will also provide you the ID of your organization.</p>
+<p>For now, an organization can only contain one account that is automatically generated when the organization is created. Supporting multiple accounts within the same organization is in the roadmap.</p>
+<h2 id="installing-the-appclacks-cli">Installing the Appclacks CLI</h2>
+<p>We don&rsquo;t provide a user interface, for now, to work with the Appclacks cloud platform. We provide a full-featured <a href="https://github.com/appclacks/cli">command line interface</a> to interact with the platform.</p>
+<p>To install the CLI, you should:</p>
+<ul>
+<li>Get the latest release from the <a href="https://github.com/appclacks/cli/releases">releases page</a>. Be sure to download the archive for your platform and operating system.</li>
+<li>Unarchive it and add the <code>appclacks</code> binary into your path.</li>
+<li><code>appclacks help</code> should work and give you information about the appclacks CLI</li>
+</ul>
+<h2 id="authentication">Authentication</h2>
+<p><strong>Creating a token</strong></p>
+<p>You need an API token in order to interact with the Appclacks cloud platform:</p>
+<ul>
+<li>Define two environment variables containing your Appclacks account email and password: <code>export APPCLACKS_ACCOUNT_EMAIL='&lt;your_account_email'</code> and <code>export APPCLACKS_ACCOUNT_PASSWORD='&lt;your_account_password'</code>.</li>
+<li>Create a new API token with the command <code>appclacks token create</code>, for example <code>appclacks token create --name &quot;admin&quot;</code>.
+You can run <code>appclacks token create --help</code> to list all options for this command. You can for example configure the allowed API calls for the token and configure a TTL on it.</li>
+</ul>
+<p>See the <a href="/guides/authentication/">Authentication</a> documentation for more information about permissions and tokens.</p>
+<p><strong>Using a token</strong></p>
+<p>Once you have a token, set the <code>APPCLACKS_ORGANIZATION_ID</code> environment variable to your organization ID, and the <code>APPCLACKS_TOKEN</code> environment variable to your token value.</p>
+<p>You should now be able to execute commands if your token allows them. <code>appclacks healthcheck list</code> should work for example.</p>
+<p>All commands accept an <code>--output</code> flag. By default, the <code>table</code> output is used but you can use the <code>json</code> output to get the JSON payload returned by the API.</p>
+<p>You can now follow the <a href="/guides">guides</a> to learn about how to use the Appclacks cloud platform.</p>
+
+            <footer class="footline">
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation" dir="ltr">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<a id="logo" href="http://example.org/">
+  <img src="/img/appclacks.png" alt="Appclacks logo"/>
+</a>
+
+        </div>
+        <div class="searchbox default-animation">
+          <i class="fas fa-search" title="Search (CTRL+ALT+f)"></i>
+          <label class="a11y-only" for="search-by">Search</label>
+          <input data-search-input id="search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1670279544" defer></script>
+        <script src="/js/lunr.min.js?1670279544" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1670279544" defer></script>
+        <script src="/js/lunr.multi.min.js?1670279544" defer></script>
+        <script src="/js/lunr.en.min.js?1670279544" defer></script>
+        <script src="/js/search.js?1670279544" defer></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fas fa-home"></i> Home</a></li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/getting-started/index.html" class="dd-item active"><a href="/getting-started/index.html">Getting Started</a></li>
+          <li data-nav-id="/guides/index.html" class="dd-item alwaysopen"><a href="/guides/index.html">Guides</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290">
+          <li data-nav-id="/guides/healthcheck/index.html" class="dd-item"><a href="/guides/healthcheck/index.html">Managing health checks</a></li>
+          <li data-nav-id="/guides/authentication/index.html" class="dd-item"><a href="/guides/authentication/index.html">Authentication</a></li>
+          <li data-nav-id="/guides/metrics/index.html" class="dd-item"><a href="/guides/metrics/index.html">Metrics and Prometheus integration</a></li>
+          <li data-nav-id="/guides/private-infrastructure/index.html" class="dd-item"><a href="/guides/private-infrastructure/index.html">Appclacks on your private infrastructure</a></li></ul></li>
+        </ul>
+        <div id="shortcuts">
+          <div class="nav-title">More</div>
+          <ul>
+            <li><a class="padding" href="https://github.com/appclacks/documentation"><i class='fab fa-fw fa-github'></i> GitHub repo</a></li>
+            <li><a class="padding" href="https://appclacks.com"><i class='fab fa-fw fa-camera'></i> Appclacks home page</a></li>
+          </ul>
+        </div>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <div class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <label class="a11y-only" for="select-language">Language</label>
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </div>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <div class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <label class="a11y-only" for="select-variant">Theme</label>
+                  <select id="select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                    <option id="appclacks" value="appclacks" selected>Appclacks</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </div>
+              <script>window.variants && variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><button class="padding" onclick="clearHistory();"><i class="fas fa-history fa-fw"></i> Clear History</button></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1670279544" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1670279544" defer></script>
+    <script src="/js/featherlight.min.js?1670279544" defer></script>
+    <script src="/js/theme.js?1670279544" defer></script>
+  </body>
+</html>
