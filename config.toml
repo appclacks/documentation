@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://www.doc.appclacks.com'
 languageCode = 'en-us'
 title = 'Appclacks documentation'
 theme = 'relearn'

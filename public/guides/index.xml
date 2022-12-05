@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Guides on Appclacks documentation</title>
-    <link>http://example.org/guides/index.html</link>
+    <link>https://www.doc.appclacks.com/guides/index.html</link>
     <description>Recent content in Guides on Appclacks documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/guides/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www.doc.appclacks.com/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Managing health checks</title>
-      <link>http://example.org/guides/healthcheck/index.html</link>
+      <link>https://www.doc.appclacks.com/guides/healthcheck/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/guides/healthcheck/index.html</guid>
+      <guid>https://www.doc.appclacks.com/guides/healthcheck/index.html</guid>
       <description>The Appclacks CLI can be used to manage health checks
 How health checks are executed You can choose when you create an health check if it should be executed or not by the Appclacks cloud platform.
 It&amp;rsquo;s possible to create health checks on Appclacks but to host yourself the prober executing the health check, or to execute it by both Appclacks and on your infrastructure. See the Appclacks on your private infrastructure guide for more information about self-hosting.</description>
     </item>
     <item>
       <title>Authentication</title>
-      <link>http://example.org/guides/authentication/index.html</link>
+      <link>https://www.doc.appclacks.com/guides/authentication/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/guides/authentication/index.html</guid>
+      <guid>https://www.doc.appclacks.com/guides/authentication/index.html</guid>
       <description>The Getting Started section explains how to install the Appclacks CLI, create an organization and a new token. This guide will go into detail about API token management.
 API Tokens permissions You can attach permissions to API tokens to only allow some actions when used. The --permission flag can be used (and repeated) on the appclacks token create command to configure permissions.
 The support permissions are:
@@ -27,18 +27,18 @@ The support permissions are:
     </item>
     <item>
       <title>Metrics and Prometheus integration</title>
-      <link>http://example.org/guides/metrics/index.html</link>
+      <link>https://www.doc.appclacks.com/guides/metrics/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/guides/metrics/index.html</guid>
+      <guid>https://www.doc.appclacks.com/guides/metrics/index.html</guid>
       <description>The Appclacks API exposes health checks metrics in the Prometheus format.
 Exposed metrics Two metrics about health checks are exposed by the Appclacks API:
 healthcheck_duration_seconds_bucket: A Prometheus histogram showing the duration of health checks executions. The labels for this metric are le (the bucket), name (the health check name), and zone (the zone where the health check is executed). healthcheck_total: A Prometheus counter, counting the health checks executions. The labels for this metric are name (the health check name), status (success or failure), and zone (the zone where the health check is executed).</description>
     </item>
     <item>
       <title>Appclacks on your private infrastructure</title>
-      <link>http://example.org/guides/private-infrastructure/index.html</link>
+      <link>https://www.doc.appclacks.com/guides/private-infrastructure/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://example.org/guides/private-infrastructure/index.html</guid>
+      <guid>https://www.doc.appclacks.com/guides/private-infrastructure/index.html</guid>
       <description>Cabourotte, the Appclacks prober, is a free software you can host on your private infrastructure.
 It can be retrieved from its Github repository and its documentation is available on https://www.cabourotte.mcorbin.fr/.
 You should configure the discovery section of the Cabourotte documentation file to integrate it with Appclacks. Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.
