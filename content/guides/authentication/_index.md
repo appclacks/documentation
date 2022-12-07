@@ -22,8 +22,8 @@ The support permissions are:
 - `UpdateHealthcheck`: Update health checks
 - `ListHealthchecks`: List health checks
 - `ListHealthchecksResults`: List health checks results
-- `GetHealthchecksMetrics`: Get health checks metrics. See the [Metrics and Prometheus integration](/guides/metrics/) guide.
-- `CabourotteDiscovery`: Cabourotte discovery endpoint. See the [Appclacks on your private infrastructure guide](/guides/private-infrastructure/) guide.
+- `GetHealthchecksMetrics`: Get health checks metrics. See the [Metrics and Prometheus integration guide](/guides/metrics/).
+- `CabourotteDiscovery`: Cabourotte discovery endpoint. See the [Appclacks on your private infrastructure guide](/guides/private-infrastructure/).
 
 ## API tokens TTL
 
