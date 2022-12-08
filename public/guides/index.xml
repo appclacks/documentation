@@ -31,8 +31,11 @@ The support permissions are:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.doc.appclacks.com/guides/metrics/index.html</guid>
       <description>The Appclacks API exposes health checks metrics in the Prometheus format.
-Exposed metrics Two metrics about health checks are exposed by the Appclacks API:
-healthcheck_duration_seconds_bucket: A Prometheus histogram showing the duration of health checks executions. The labels for this metric are le (the bucket), name (the health check name), and zone (the zone where the health check is executed). healthcheck_total: A Prometheus counter, counting the health checks executions. The labels for this metric are name (the health check name), status (success or failure), and zone (the zone where the health check is executed).</description>
+Retrieving the metrics Using the Appclacks CLI
+The appclacks healthcheck metrics get command returns all metrics for your health checks in Prometheus format.
+Using Prometheus
+You can configure Prometheus to scrape the Appclacks API by adding a new job on the scrape_configs section:
+scrape_configs: - job_name: &amp;#34;appclacks&amp;#34; metrics_path: &amp;#34;/api/v1/metrics/healthchecks&amp;#34; scheme: https basic_auth: username: &amp;#39;&amp;lt;YOUR ORGANIZATION ID&amp;gt;&amp;#39; password: &amp;#39;&amp;lt;YOUR API TOKEN&amp;gt;&amp;#39; static_configs: - targets: - &amp;#34;api.</description>
     </item>
     <item>
       <title>Appclacks on your private infrastructure</title>
@@ -41,7 +44,7 @@ healthcheck_duration_seconds_bucket: A Prometheus histogram showing the duration
       <guid>https://www.doc.appclacks.com/guides/private-infrastructure/index.html</guid>
       <description>Cabourotte, the Appclacks prober, is a free software you can host on your private infrastructure.
 It can be retrieved from its Github repository and its documentation is available on https://www.cabourotte.mcorbin.fr/.
-You should configure the discovery section of the Cabourotte documentation file to integrate it with Appclacks. Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.
+You should configure the discovery section of the Cabourotte configuration file to integrate it with Appclacks. Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.
 This is a Cabourotte configuration example:
 discovery: http: interval: 60s host: &amp;#34;api.</description>
     </item>

@@ -5,6 +5,31 @@ weight: 40
 
 The Appclacks API exposes health checks metrics in the [Prometheus](https://prometheus.io/) format.
 
+## Retrieving the metrics
+
+**Using the Appclacks CLI**
+
+The `appclacks healthcheck metrics get` command returns all metrics for your health checks in Prometheus format.
+
+**Using Prometheus**
+
+You can configure Prometheus to scrape the Appclacks API by adding a new job on the [scrape_configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) section:
+
+```yaml
+scrape_configs:
+  - job_name: "appclacks"
+    metrics_path: "/api/v1/metrics/healthchecks"
+    scheme: https
+    basic_auth:
+      username: '<YOUR ORGANIZATION ID>'
+      password: '<YOUR API TOKEN>'
+    static_configs:
+      - targets:
+          - "api.appclacks.com"
+```
+
+Be sure to use a token allowing you to get metrics, as explained in the [Authentication guide](/guides/authentication/).
+
 ## Exposed metrics
 
 Two metrics about health checks are exposed by the Appclacks API:
@@ -34,27 +59,3 @@ healthcheck_duration_seconds_bucket{le="7.5", name="21223a4c-256c-48f2-9495-9836
 healthcheck_total{name="21223a4c-256c-48f2-9495-9836264191b8", status="success", zone="fr-par1"} 1
 ```
 
-## Retrieving the metrics
-
-**Using the Appclacks CLI**
-
-The `appclacks healthcheck metrics get` command returns all metrics for your health checks in Prometheus format.
-
-**Using Prometheus**
-
-You can configure Prometheus to scrape the Appclacks API by adding a new job on the [scrape_configs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) section:
-
-```yaml
-scrape_configs:
-  - job_name: "appclacks"
-    metrics_path: "/api/v1/metrics/healthchecks"
-    scheme: https
-    basic_auth:
-      username: '<YOUR ORGANIZATION ID>'
-      password: '<YOUR API TOKEN'
-    static_configs:
-      - targets:
-          - "api.appclacks.com"
-```
-
-Be sure to use a token allowing you to get metrics, as explained in the [Authentication guide](/guides/authentication/).

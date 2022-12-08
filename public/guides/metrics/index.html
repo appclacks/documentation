@@ -9,19 +9,19 @@
     <title>Metrics and Prometheus integration :: Appclacks documentation</title>
     <link href="/guides/metrics/index.xml" rel="alternate" type="application/rss+xml" title="Metrics and Prometheus integration :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1670433838" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1670433838" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1670433838" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1670433838" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1670433838" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1670433838" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1670433838" rel="stylesheet">
-    <link href="/css/nucleus.css?1670433838" rel="stylesheet">
-    <link href="/css/fonts.css?1670433838" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1670433838" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1670433838" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1670433838" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1670433838" rel="stylesheet">
-    <link href="/css/variant.css?1670433838" rel="stylesheet">
-    <link href="/css/print.css?1670433838" rel="stylesheet" media="print">
-    <script src="/js/url.js?1670433838"></script>
-    <script src="/js/variant.js?1670433838"></script>
+    <link href="/css/fontawesome-all.min.css?1670524480" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1670524480" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1670524480" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1670524480" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1670524480" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1670524480" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1670524480" rel="stylesheet">
+    <link href="/css/nucleus.css?1670524480" rel="stylesheet">
+    <link href="/css/fonts.css?1670524480" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1670524480" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1670524480" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1670524480" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1670524480" rel="stylesheet">
+    <link href="/css/variant.css?1670524480" rel="stylesheet">
+    <link href="/css/print.css?1670524480" rel="stylesheet" media="print">
+    <script src="/js/url.js?1670524480"></script>
+    <script src="/js/variant.js?1670524480"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1670433838" defer></script>
+    <script src="/js/jquery.min.js?1670524480" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/guides/metrics/index.html">
     <div id="body" class="default-animation">
@@ -67,8 +67,8 @@
             <div class="toc-wrapper" dir="ltr">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#exposed-metrics">Exposed metrics</a></li>
     <li><a href="#retrieving-the-metrics">Retrieving the metrics</a></li>
+    <li><a href="#exposed-metrics">Exposed metrics</a></li>
   </ul>
 </nav>
             </div>
@@ -83,6 +83,22 @@
 <h1 id="metrics-and-prometheus-integration">Metrics and Prometheus integration</h1>
 
 <p>The Appclacks API exposes health checks metrics in the <a href="https://prometheus.io/">Prometheus</a> format.</p>
+<h2 id="retrieving-the-metrics">Retrieving the metrics</h2>
+<p><strong>Using the Appclacks CLI</strong></p>
+<p>The <code>appclacks healthcheck metrics get</code> command returns all metrics for your health checks in Prometheus format.</p>
+<p><strong>Using Prometheus</strong></p>
+<p>You can configure Prometheus to scrape the Appclacks API by adding a new job on the <a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config">scrape_configs</a> section:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">scrape_configs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job_name</span>: <span style="color:#e6db74">&#34;appclacks&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metrics_path</span>: <span style="color:#e6db74">&#34;/api/v1/metrics/healthchecks&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">https</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">basic_auth</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">username</span>: <span style="color:#e6db74">&#39;&lt;YOUR ORGANIZATION ID&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">password</span>: <span style="color:#e6db74">&#39;&lt;YOUR API TOKEN&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">static_configs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">targets</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;api.appclacks.com&#34;</span>
+</span></span></code></pre></div><p>Be sure to use a token allowing you to get metrics, as explained in the <a href="/guides/authentication/">Authentication guide</a>.</p>
 <h2 id="exposed-metrics">Exposed metrics</h2>
 <p>Two metrics about health checks are exposed by the Appclacks API:</p>
 <ul>
@@ -107,23 +123,7 @@ healthcheck_duration_seconds_bucket{le=&#34;2.5&#34;, name=&#34;21223a4c-256c-48
 healthcheck_duration_seconds_bucket{le=&#34;5&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
 healthcheck_duration_seconds_bucket{le=&#34;7.5&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
 healthcheck_total{name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, status=&#34;success&#34;, zone=&#34;fr-par1&#34;} 1
-</code></pre><h2 id="retrieving-the-metrics">Retrieving the metrics</h2>
-<p><strong>Using the Appclacks CLI</strong></p>
-<p>The <code>appclacks healthcheck metrics get</code> command returns all metrics for your health checks in Prometheus format.</p>
-<p><strong>Using Prometheus</strong></p>
-<p>You can configure Prometheus to scrape the Appclacks API by adding a new job on the <a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config">scrape_configs</a> section:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">scrape_configs</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job_name</span>: <span style="color:#e6db74">&#34;appclacks&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metrics_path</span>: <span style="color:#e6db74">&#34;/api/v1/metrics/healthchecks&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">https</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">basic_auth</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">username</span>: <span style="color:#e6db74">&#39;&lt;YOUR ORGANIZATION ID&gt;&#39;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">password</span>: <span style="color:#e6db74">&#39;&lt;YOUR API TOKEN&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">static_configs</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">targets</span>:
-</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#34;api.appclacks.com&#34;</span>
-</span></span></code></pre></div><p>Be sure to use a token allowing you to get metrics, as explained in the <a href="/guides/authentication/">Authentication guide</a>.</p>
-
+</code></pre>
             <footer class="footline">
             </footer>
           </article>
@@ -147,12 +147,12 @@ healthcheck_total{name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, status=&#
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1670433838" defer></script>
-        <script src="/js/lunr.min.js?1670433838" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1670433838" defer></script>
-        <script src="/js/lunr.multi.min.js?1670433838" defer></script>
-        <script src="/js/lunr.en.min.js?1670433838" defer></script>
-        <script src="/js/search.js?1670433838" defer></script>
+        <script src="/js/auto-complete.js?1670524480" defer></script>
+        <script src="/js/lunr.min.js?1670524480" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1670524480" defer></script>
+        <script src="/js/lunr.multi.min.js?1670524480" defer></script>
+        <script src="/js/lunr.en.min.js?1670524480" defer></script>
+        <script src="/js/search.js?1670524480" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -213,9 +213,9 @@ healthcheck_total{name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, status=&#
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1670433838" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1670433838" defer></script>
-    <script src="/js/featherlight.min.js?1670433838" defer></script>
-    <script src="/js/theme.js?1670433838" defer></script>
+    <script src="/js/clipboard.min.js?1670524480" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1670524480" defer></script>
+    <script src="/js/featherlight.min.js?1670524480" defer></script>
+    <script src="/js/theme.js?1670524480" defer></script>
   </body>
 </html>
