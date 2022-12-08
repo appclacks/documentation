@@ -35,27 +35,27 @@ Be sure to use a token allowing you to get metrics, as explained in the [Authent
 Two metrics about health checks are exposed by the Appclacks API:
 
 - `healthcheck_duration_seconds_bucket`: A [Prometheus histogram](https://prometheus.io/docs/concepts/metric_types/#histogram) showing the duration of health checks executions.
-The labels for this metric are `le` (the bucket), `name` (the health check name), and `zone` (the zone where the health check is executed).
+The labels for this metric are `le` (the bucket), `id` (the health check id), `name` (the health check name), and `zone` (the zone where the health check is executed).
 - `healthcheck_total`: A [Prometheus counter](https://prometheus.io/docs/concepts/metric_types/#counter), counting the health checks executions.
-The labels for this metric are `name` (the health check name), `status` (`success` or `failure`), and `zone` (the zone where the health check is executed).
+The labels for this metric are `id` (the health check id), `name` (the health check name), `status` (`success` or `failure`), and `zone` (the zone where the health check is executed).
 
 This for example would return the API for a health check executed in the `fr-par1` zone:
 
 ```
-healthcheck_duration_seconds_bucket{le="+Inf", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 1
-healthcheck_duration_seconds_bucket{le="0.005", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 0
-healthcheck_duration_seconds_bucket{le="0.01", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 0
-healthcheck_duration_seconds_bucket{le="0.025", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 0
-healthcheck_duration_seconds_bucket{le="0.05", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 0
-healthcheck_duration_seconds_bucket{le="0.1", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 0
-healthcheck_duration_seconds_bucket{le="0.25", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 0
-healthcheck_duration_seconds_bucket{le="0.5", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 0
-healthcheck_duration_seconds_bucket{le="0.75", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 1
-healthcheck_duration_seconds_bucket{le="1", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 1
-healthcheck_duration_seconds_bucket{le="10", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 1
-healthcheck_duration_seconds_bucket{le="2.5", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 1
-healthcheck_duration_seconds_bucket{le="5", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 1
-healthcheck_duration_seconds_bucket{le="7.5", name="21223a4c-256c-48f2-9495-9836264191b8", zone="fr-par1"} 1
-healthcheck_total{name="21223a4c-256c-48f2-9495-9836264191b8", status="success", zone="fr-par1"} 1
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="+Inf", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="0.005", name="mcorbin-blog", zone="fr-par-1"} 0
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="0.01", name="mcorbin-blog", zone="fr-par-1"} 0
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="0.025", name="mcorbin-blog", zone="fr-par-1"} 0
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="0.05", name="mcorbin-blog", zone="fr-par-1"} 0
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="0.1", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="0.25", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="0.5", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="0.75", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="1", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="10", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="2.5", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="5", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", le="7.5", name="mcorbin-blog", zone="fr-par-1"} 3
+healthcheck_total{id="cc145703-af98-4c0b-96da-8e06dc934fc7", name="mcorbin-blog", status="success", zone="fr-par-1"} 3
 ```
 

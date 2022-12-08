@@ -9,19 +9,19 @@
     <title>Metrics and Prometheus integration :: Appclacks documentation</title>
     <link href="/guides/metrics/index.xml" rel="alternate" type="application/rss+xml" title="Metrics and Prometheus integration :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1670524480" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1670524480" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1670524480" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1670524480" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1670524480" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1670524480" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1670524480" rel="stylesheet">
-    <link href="/css/nucleus.css?1670524480" rel="stylesheet">
-    <link href="/css/fonts.css?1670524480" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1670524480" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1670524480" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1670524480" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1670524480" rel="stylesheet">
-    <link href="/css/variant.css?1670524480" rel="stylesheet">
-    <link href="/css/print.css?1670524480" rel="stylesheet" media="print">
-    <script src="/js/url.js?1670524480"></script>
-    <script src="/js/variant.js?1670524480"></script>
+    <link href="/css/fontawesome-all.min.css?1670537216" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1670537216" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1670537216" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1670537216" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1670537216" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1670537216" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1670537216" rel="stylesheet">
+    <link href="/css/nucleus.css?1670537216" rel="stylesheet">
+    <link href="/css/fonts.css?1670537216" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1670537216" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1670537216" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1670537216" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1670537216" rel="stylesheet">
+    <link href="/css/variant.css?1670537216" rel="stylesheet">
+    <link href="/css/print.css?1670537216" rel="stylesheet" media="print">
+    <script src="/js/url.js?1670537216"></script>
+    <script src="/js/variant.js?1670537216"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1670524480" defer></script>
+    <script src="/js/jquery.min.js?1670537216" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/guides/metrics/index.html">
     <div id="body" class="default-animation">
@@ -103,26 +103,26 @@
 <p>Two metrics about health checks are exposed by the Appclacks API:</p>
 <ul>
 <li><code>healthcheck_duration_seconds_bucket</code>: A <a href="https://prometheus.io/docs/concepts/metric_types/#histogram">Prometheus histogram</a> showing the duration of health checks executions.
-The labels for this metric are <code>le</code> (the bucket), <code>name</code> (the health check name), and <code>zone</code> (the zone where the health check is executed).</li>
+The labels for this metric are <code>le</code> (the bucket), <code>id</code> (the health check id), <code>name</code> (the health check name), and <code>zone</code> (the zone where the health check is executed).</li>
 <li><code>healthcheck_total</code>: A <a href="https://prometheus.io/docs/concepts/metric_types/#counter">Prometheus counter</a>, counting the health checks executions.
-The labels for this metric are <code>name</code> (the health check name), <code>status</code> (<code>success</code> or <code>failure</code>), and <code>zone</code> (the zone where the health check is executed).</li>
+The labels for this metric are <code>id</code> (the health check id), <code>name</code> (the health check name), <code>status</code> (<code>success</code> or <code>failure</code>), and <code>zone</code> (the zone where the health check is executed).</li>
 </ul>
 <p>This for example would return the API for a health check executed in the <code>fr-par1</code> zone:</p>
-<pre tabindex="0"><code>healthcheck_duration_seconds_bucket{le=&#34;+Inf&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
-healthcheck_duration_seconds_bucket{le=&#34;0.005&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 0
-healthcheck_duration_seconds_bucket{le=&#34;0.01&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 0
-healthcheck_duration_seconds_bucket{le=&#34;0.025&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 0
-healthcheck_duration_seconds_bucket{le=&#34;0.05&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 0
-healthcheck_duration_seconds_bucket{le=&#34;0.1&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 0
-healthcheck_duration_seconds_bucket{le=&#34;0.25&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 0
-healthcheck_duration_seconds_bucket{le=&#34;0.5&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 0
-healthcheck_duration_seconds_bucket{le=&#34;0.75&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
-healthcheck_duration_seconds_bucket{le=&#34;1&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
-healthcheck_duration_seconds_bucket{le=&#34;10&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
-healthcheck_duration_seconds_bucket{le=&#34;2.5&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
-healthcheck_duration_seconds_bucket{le=&#34;5&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
-healthcheck_duration_seconds_bucket{le=&#34;7.5&#34;, name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, zone=&#34;fr-par1&#34;} 1
-healthcheck_total{name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, status=&#34;success&#34;, zone=&#34;fr-par1&#34;} 1
+<pre tabindex="0"><code>healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;+Inf&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;0.005&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 0
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;0.01&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 0
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;0.025&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 0
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;0.05&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 0
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;0.1&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;0.25&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;0.5&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;0.75&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;1&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;10&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;2.5&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;5&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_duration_seconds_bucket{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, le=&#34;7.5&#34;, name=&#34;mcorbin-blog&#34;, zone=&#34;fr-par-1&#34;} 3
+healthcheck_total{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, name=&#34;mcorbin-blog&#34;, status=&#34;success&#34;, zone=&#34;fr-par-1&#34;} 3
 </code></pre>
             <footer class="footline">
             </footer>
@@ -147,12 +147,12 @@ healthcheck_total{name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, status=&#
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1670524480" defer></script>
-        <script src="/js/lunr.min.js?1670524480" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1670524480" defer></script>
-        <script src="/js/lunr.multi.min.js?1670524480" defer></script>
-        <script src="/js/lunr.en.min.js?1670524480" defer></script>
-        <script src="/js/search.js?1670524480" defer></script>
+        <script src="/js/auto-complete.js?1670537216" defer></script>
+        <script src="/js/lunr.min.js?1670537216" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1670537216" defer></script>
+        <script src="/js/lunr.multi.min.js?1670537216" defer></script>
+        <script src="/js/lunr.en.min.js?1670537216" defer></script>
+        <script src="/js/search.js?1670537216" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -213,9 +213,9 @@ healthcheck_total{name=&#34;21223a4c-256c-48f2-9495-9836264191b8&#34;, status=&#
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1670524480" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1670524480" defer></script>
-    <script src="/js/featherlight.min.js?1670524480" defer></script>
-    <script src="/js/theme.js?1670524480" defer></script>
+    <script src="/js/clipboard.min.js?1670537216" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1670537216" defer></script>
+    <script src="/js/featherlight.min.js?1670537216" defer></script>
+    <script src="/js/theme.js?1670537216" defer></script>
   </body>
 </html>
