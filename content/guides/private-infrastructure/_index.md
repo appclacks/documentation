@@ -14,16 +14,16 @@ This is a Cabourotte configuration example:
 
 ```yaml
 discovery:
-    http:
-      interval: 60s
-      host: "api.appclacks.com"
-      port: 443
-      path: "/api/v1/cabourotte/discovery"
-      protocol: "https"
-      query:
-        labels: "env=prod,project=foo"
-      headers:
-        Authorization: "Basic WU9VUl9PUkdBTklaQVRJT05fSUQ6WU9VUl9UT0tFTg=="
+  http:
+    interval: 60s
+    host: "api.appclacks.com"
+    port: 443
+    path: "/api/v1/cabourotte/discovery"
+    protocol: "https"
+    query:
+      labels: "env=prod,project=foo"
+    headers:
+      Authorization: "Basic WU9VUl9PUkdBTklaQVRJT05fSUQ6WU9VUl9UT0tFTg=="
 ```
 
 The `Authorization` header contains the `Basic` string followed by the string `YOUR_ORGANIZATION_ID:YOUR_API_TOKEN` encoded in base64.
