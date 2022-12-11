@@ -32,7 +32,7 @@ $ appclacks healthcheck http create --name "hello" --target "appclacks.com" --ou
 {"id":"caaa5899-26a7-4a91-a77a-86adc849d23e","name":"hello","type":"http","timeout":"5s","interval":"60s","created-at":"2022-12-04T21:47:03.592347391Z","enabled":true,"Definition":{"valid-status":[200],"target":"appclacks.com","method":"GET","port":443,"redirect":true,"protocol":"https"}}
 ```
 
-The `--enabled` flag controls whether or not the health check should be executed by the Appclacks cloud platform.
+The `--disable` flag controls whether or not the health check should be executed by the Appclacks cloud platform. If set, the health check `enabled` field will be set to false and the health will not be executed by Appclacks.
 
 Use the `--help` command to get details about health checks, for example `appclacks healthcheck http create --help`.
 

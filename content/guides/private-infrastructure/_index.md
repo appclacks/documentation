@@ -13,17 +13,21 @@ Cabourotte will retrieve the health check configurations from Appclacks and run 
 This is a Cabourotte configuration example:
 
 ```yaml
+http:
+  host: "0.0.0.0"
+  port: 9013
 discovery:
   http:
-    interval: 60s
-    host: "api.appclacks.com"
-    port: 443
-    path: "/api/v1/cabourotte/discovery"
-    protocol: "https"
-    query:
-      labels: "env=prod,project=foo"
-    headers:
-      Authorization: "Basic WU9VUl9PUkdBTklaQVRJT05fSUQ6WU9VUl9UT0tFTg=="
+    - name: "appclacks"
+      interval: 60s
+      host: "api.appclacks.com"
+      port: 443
+      path: "/api/v1/cabourotte/discovery"
+      protocol: "https"
+      query:
+        labels: "env=prod,project=foo"
+      headers:
+        Authorization: "Basic WU9VUl9PUkdBTklaQVRJT05fSUQ6WU9VUl9UT0tFTg=="
 ```
 
 The `Authorization` header contains the `Basic` string followed by the string `YOUR_ORGANIZATION_ID:YOUR_API_TOKEN` encoded in base64.

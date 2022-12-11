@@ -9,19 +9,19 @@
     <title>Appclacks on your private infrastructure :: Appclacks documentation</title>
     <link href="/guides/private-infrastructure/index.xml" rel="alternate" type="application/rss+xml" title="Appclacks on your private infrastructure :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1670620365" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1670620365" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1670620365" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1670620365" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1670620365" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1670620365" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1670620365" rel="stylesheet">
-    <link href="/css/nucleus.css?1670620365" rel="stylesheet">
-    <link href="/css/fonts.css?1670620365" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1670620365" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1670620365" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1670620365" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1670620365" rel="stylesheet">
-    <link href="/css/variant.css?1670620365" rel="stylesheet">
-    <link href="/css/print.css?1670620365" rel="stylesheet" media="print">
-    <script src="/js/url.js?1670620365"></script>
-    <script src="/js/variant.js?1670620365"></script>
+    <link href="/css/fontawesome-all.min.css?1670770363" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1670770363" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1670770363" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1670770363" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1670770363" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1670770363" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1670770363" rel="stylesheet">
+    <link href="/css/nucleus.css?1670770363" rel="stylesheet">
+    <link href="/css/fonts.css?1670770363" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1670770363" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1670770363" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1670770363" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1670770363" rel="stylesheet">
+    <link href="/css/variant.css?1670770363" rel="stylesheet">
+    <link href="/css/print.css?1670770363" rel="stylesheet" media="print">
+    <script src="/js/url.js?1670770363"></script>
+    <script src="/js/variant.js?1670770363"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1670620365" defer></script>
+    <script src="/js/jquery.min.js?1670770363" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/guides/private-infrastructure/index.html">
     <div id="body" class="default-animation">
@@ -76,17 +76,21 @@
 <p>You should configure the <code>discovery</code> section of the Cabourotte <a href="https://www.cabourotte.appclacks.com/installation/configuration/">configuration file</a> to integrate it with Appclacks.
 Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.</p>
 <p>This is a Cabourotte configuration example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">discovery</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">9013</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">discovery</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">http</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">60s</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;api.appclacks.com&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">port</span>: <span style="color:#ae81ff">443</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/api/v1/cabourotte/discovery&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">protocol</span>: <span style="color:#e6db74">&#34;https&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">query</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>: <span style="color:#e6db74">&#34;env=prod,project=foo&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">headers</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Authorization</span>: <span style="color:#e6db74">&#34;Basic WU9VUl9PUkdBTklaQVRJT05fSUQ6WU9VUl9UT0tFTg==&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;appclacks&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">60s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;api.appclacks.com&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">port</span>: <span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/api/v1/cabourotte/discovery&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">protocol</span>: <span style="color:#e6db74">&#34;https&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">query</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">labels</span>: <span style="color:#e6db74">&#34;env=prod,project=foo&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">headers</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">Authorization</span>: <span style="color:#e6db74">&#34;Basic WU9VUl9PUkdBTklaQVRJT05fSUQ6WU9VUl9UT0tFTg==&#34;</span>
 </span></span></code></pre></div><p>The <code>Authorization</code> header contains the <code>Basic</code> string followed by the string <code>YOUR_ORGANIZATION_ID:YOUR_API_TOKEN</code> encoded in base64.</p>
 <p>The <code>query</code> parameter is optional and can be used to retrieve only health checks having these labels.</p>
 
@@ -113,12 +117,12 @@ Cabourotte will retrieve the health check configurations from Appclacks and run 
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1670620365" defer></script>
-        <script src="/js/lunr.min.js?1670620365" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1670620365" defer></script>
-        <script src="/js/lunr.multi.min.js?1670620365" defer></script>
-        <script src="/js/lunr.en.min.js?1670620365" defer></script>
-        <script src="/js/search.js?1670620365" defer></script>
+        <script src="/js/auto-complete.js?1670770363" defer></script>
+        <script src="/js/lunr.min.js?1670770363" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1670770363" defer></script>
+        <script src="/js/lunr.multi.min.js?1670770363" defer></script>
+        <script src="/js/lunr.en.min.js?1670770363" defer></script>
+        <script src="/js/search.js?1670770363" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -179,9 +183,9 @@ Cabourotte will retrieve the health check configurations from Appclacks and run 
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1670620365" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1670620365" defer></script>
-    <script src="/js/featherlight.min.js?1670620365" defer></script>
-    <script src="/js/theme.js?1670620365" defer></script>
+    <script src="/js/clipboard.min.js?1670770363" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1670770363" defer></script>
+    <script src="/js/featherlight.min.js?1670770363" defer></script>
+    <script src="/js/theme.js?1670770363" defer></script>
   </body>
 </html>

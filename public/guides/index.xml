@@ -46,7 +46,7 @@ scrape_configs: - job_name: &amp;#34;appclacks&amp;#34; metrics_path: &amp;#34;/
 It can be retrieved from its Github repository and its documentation is available on https://www.cabourotte.mcorbin.fr/.
 You should configure the discovery section of the Cabourotte configuration file to integrate it with Appclacks. Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.
 This is a Cabourotte configuration example:
-discovery: http: interval: 60s host: &amp;#34;api.</description>
+http: host: &amp;#34;0.0.0.0&amp;#34; port: 9013 discovery: http: - name: &amp;#34;appclacks&amp;#34; interval: 60s host: &amp;#34;api.</description>
     </item>
   </channel>
 </rss>
