@@ -19,10 +19,11 @@ Appclacks supports 4 healthchecks types today:
 - `TCP`: A TCP connection will be initiated with the target. You can also use this kind of health check to check that a TCP target is *not* responding, to be sure that a component is not exposed on the internet for example.
 - `TLS`: A TLS connection will be initiated by the target. If you host the prober yourself you can even configure which certificates to use for the connection.
 - `DNS`: A DNS resolution will be executed on a domain. You can use it to see if the resolution is working and to check the IP returned by it.
+- `Command`: An arbitrary command (with optional arguments) will be executed. The health check is considered failed if the command fails to execute.
 
 ## Creating an health check
 
-Use the `appclacks healthcheck <type> create` command to create a health check, where `<type>` is the health check type (`http`, `tcp`, `tls`, `dns`).
+Use the `appclacks healthcheck <type> create` command to create a health check, where `<type>` is the health check type (`http`, `tcp`, `tls`, `dns`, `command`).
 
 In this example, we create an HTTP health check targeting `appclacks.com`. You can see in the response (in json due to the `--output` option) the default values for HTTP health checks.
 
@@ -32,9 +33,21 @@ $ appclacks healthcheck http create --name "hello" --target "appclacks.com" --ou
 {"id":"caaa5899-26a7-4a91-a77a-86adc849d23e","name":"hello","type":"http","timeout":"5s","interval":"60s","created-at":"2022-12-04T21:47:03.592347391Z","enabled":true,"Definition":{"valid-status":[200],"target":"appclacks.com","method":"GET","port":443,"redirect":true,"protocol":"https"}}
 ```
 
-The `--disable` flag controls whether or not the health check should be executed by the Appclacks cloud platform. If set, the health check `enabled` field will be set to false and the health will not be executed by Appclacks.
+The `--disabled` flag controls whether or not the health check should be executed by the Appclacks cloud platform. If set, the health check `enabled` field will be set to false and the health will not be executed by Appclacks.
 
 Use the `--help` command to get details about health checks, for example `appclacks healthcheck http create --help`.
+
+
+{{% notice style="blue" %}}
+Some health check parameters cannot be used for health checks running one Appclacks cloud platform:
+
+- `command` health checks cannot be enabled on the Cloud platform.
+- TLS and HTTP health checks: the TLS configurations parameters (`key`, `cert`, `cacert`) cannot be used.
+- The local interface (`localhost`, `127.0.0.1`...) cannot be used as a health check target.
+
+{{% /notice %}}
+
+
 
 ## Managing health checks
 
