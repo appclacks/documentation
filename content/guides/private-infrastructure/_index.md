@@ -5,7 +5,7 @@ weight: 50
 
 Cabourotte, the Appclacks prober, is a free software you can host on your private infrastructure.
 
-It can be retrieved from its [Github repository](https://github.com/mcorbin/cabourotte/releases) and its documentation is available on [https://www.cabourotte.mcorbin.fr/](https://www.cabourotte.mcorbin.fr/).
+It can be retrieved from its [Github repository](https://github.com/mcorbin/cabourotte/releases) and its documentation is available on [https://www.cabourotte.appclacks.com/](https://www.cabourotte.appclacks.com/).
 
 You should configure the `discovery` section of the Cabourotte [configuration file](https://www.cabourotte.appclacks.com/installation/configuration/) to integrate it with Appclacks.
 Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.
