@@ -24,3 +24,5 @@ Appclacks also exposes the metrics of the health checks executed on the cloud pl
 
 All actions on the Appclacks cloud platform are performed through its API. We know at Appclacks the importance of good tooling for users, and that's why it's one of the primary focuses of the Appclacks team.
 
+We provide a full-featured [CLI](https://github.com/appclacks/cli) and a [Terraform provider](https://github.com/appclacks/terraform-provider-appclacks/) to let you efficiently configure the platform.
+
