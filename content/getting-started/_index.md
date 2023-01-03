@@ -8,7 +8,7 @@ archetype: default
 
 Appclacks organizations are entities that can hold several accounts.
 
-Appclacks is currently in Alpha. To use the platform, you should subscribe to it on the Appclacks [main website](https://appclacks.com/#register). You will then receive an email announcing that your organization is enabled. This step can take up to a day.
+Appclacks is currently in Alpha. To use the platform, you should subscribe to it on the Appclacks [main website](https://appclacks.com/#register). You will then receive an email with an activation link.
 
 The email will also provide you the ID of your organization.
 
@@ -31,6 +31,7 @@ To install the CLI, you should:
 You need an API token in order to interact with the Appclacks cloud platform:
 
 - Define two environment variables containing your Appclacks account email and password: `export APPCLACKS_ACCOUNT_EMAIL='<your_account_email'` and `export APPCLACKS_ACCOUNT_PASSWORD='<your_account_password'`.
+- You should now be able to get information about your organization using the `appclacks account organization` command.
 - Create a new API token with the command `appclacks token create`, for example `appclacks token create --name "admin"`.
 You can run `appclacks token create --help` to list all options for this command. You can for example configure the allowed API calls for the token and configure a TTL on it.
 

@@ -12,9 +12,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.doc.appclacks.com/getting-started/index.html</guid>
       <description>Creating your organization Appclacks organizations are entities that can hold several accounts.
-Appclacks is currently in Alpha. To use the platform, you should subscribe to it on the Appclacks main website. You will then receive an email announcing that your organization is enabled. This step can take up to a day.
+Appclacks is currently in Alpha. To use the platform, you should subscribe to it on the Appclacks main website. You will then receive an email with an activation link.
 The email will also provide you the ID of your organization.
-For now, an organization can only contain one account that is automatically generated when the organization is created.</description>
+For now, an organization can only contain one account that is automatically generated when the organization is created. Supporting multiple accounts within the same organization is in the roadmap.</description>
     </item>
     <item>
       <title>Guides</title>
