@@ -9,19 +9,19 @@
     <title>Getting Started :: Appclacks documentation</title>
     <link href="/getting-started/index.xml" rel="alternate" type="application/rss+xml" title="Getting Started :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1681681469" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1681681469" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1681681469" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1681681469" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1681681469" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1681681469" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1681681469" rel="stylesheet">
-    <link href="/css/nucleus.css?1681681469" rel="stylesheet">
-    <link href="/css/fonts.css?1681681469" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1681681469" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1681681469" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1681681469" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1681681469" rel="stylesheet">
-    <link href="/css/variant.css?1681681469" rel="stylesheet">
-    <link href="/css/print.css?1681681469" rel="stylesheet" media="print">
-    <script src="/js/url.js?1681681469"></script>
-    <script src="/js/variant.js?1681681469"></script>
+    <link href="/css/fontawesome-all.min.css?1681681715" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1681681715" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1681681715" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1681681715" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1681681715" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1681681715" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1681681715" rel="stylesheet">
+    <link href="/css/nucleus.css?1681681715" rel="stylesheet">
+    <link href="/css/fonts.css?1681681715" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1681681715" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1681681715" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1681681715" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1681681715" rel="stylesheet">
+    <link href="/css/variant.css?1681681715" rel="stylesheet">
+    <link href="/css/print.css?1681681715" rel="stylesheet" media="print">
+    <script src="/js/url.js?1681681715"></script>
+    <script src="/js/variant.js?1681681715"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1681681469" defer></script>
+    <script src="/js/jquery.min.js?1681681715" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/getting-started/index.html">
     <div id="body" class="default-animation">
@@ -107,16 +107,16 @@
 <p>An authentication token will be automatically created for your account. A configuration file will be created in your OS configuration directory (<code>$HOME/.config/appclacks/appaclacks.yaml</code> on Linux, see <a href="https://pkg.go.dev/os#UserConfigDir">this Golang function</a> for other platforms) and automatically picked by the CLI.</p>
 <p>You should now be able to successfully run commands, for example <code>appclacks healthcheck list</code>. You can override the default profile used by the CLI by passing the <code>--profile</code> flag.</p>
 <p>This is a commented example of the configuration file format:</p>
-<pre tabindex="0"><code># default profile used by the CLI
-default-profile: my-profile
-profiles:
-    # profile name
-    my-profile:
-        # organization ID
-        organization-id: 5a062154-dc9f-11ed-9cd1-673503b45134
-        # API token
-        api-token: &lt;api_token&gt;
-</code></pre><p><strong>Creating a token manually</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># default profile used by the CLI</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">default-profile</span>: <span style="color:#ae81ff">my-profile</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">profiles</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># profile name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">my-profile</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># organization ID</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">organization-id</span>: <span style="color:#ae81ff">5a062154-dc9f-11ed-9cd1-673503b45134</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># API token</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">api-token</span>: <span style="color:#ae81ff">&lt;api_token&gt;</span>
+</span></span></code></pre></div><p><strong>Creating a token manually</strong></p>
 <p>This alternative method allows you to create tokens without using <code>appclacks login</code>. It can be useful to get more control over the created tokens (to configure permissions on them for example).</p>
 <ul>
 <li>Define two environment variables containing your Appclacks account email and password: <code>export APPCLACKS_ACCOUNT_EMAIL='&lt;your_account_email'</code> and <code>export APPCLACKS_ACCOUNT_PASSWORD='&lt;your_account_password'</code>.</li>
@@ -154,12 +154,12 @@ You can run <code>appclacks token create --help</code> to list all options for t
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1681681469" defer></script>
-        <script src="/js/lunr.min.js?1681681469" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1681681469" defer></script>
-        <script src="/js/lunr.multi.min.js?1681681469" defer></script>
-        <script src="/js/lunr.en.min.js?1681681469" defer></script>
-        <script src="/js/search.js?1681681469" defer></script>
+        <script src="/js/auto-complete.js?1681681715" defer></script>
+        <script src="/js/lunr.min.js?1681681715" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1681681715" defer></script>
+        <script src="/js/lunr.multi.min.js?1681681715" defer></script>
+        <script src="/js/lunr.en.min.js?1681681715" defer></script>
+        <script src="/js/search.js?1681681715" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -220,9 +220,9 @@ You can run <code>appclacks token create --help</code> to list all options for t
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1681681469" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1681681469" defer></script>
-    <script src="/js/featherlight.min.js?1681681469" defer></script>
-    <script src="/js/theme.js?1681681469" defer></script>
+    <script src="/js/clipboard.min.js?1681681715" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1681681715" defer></script>
+    <script src="/js/featherlight.min.js?1681681715" defer></script>
+    <script src="/js/theme.js?1681681715" defer></script>
   </body>
 </html>

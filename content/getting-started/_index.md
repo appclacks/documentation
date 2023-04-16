@@ -41,7 +41,7 @@ You should now be able to successfully run commands, for example `appclacks heal
 
 This is a commented example of the configuration file format:
 
-```
+```yaml
 # default profile used by the CLI
 default-profile: my-profile
 profiles:
