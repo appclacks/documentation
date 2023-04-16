@@ -9,19 +9,19 @@
     <title>Getting Started :: Appclacks documentation</title>
     <link href="/getting-started/index.xml" rel="alternate" type="application/rss+xml" title="Getting Started :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1672769941" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1672769941" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1672769941" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1672769941" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1672769941" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1672769941" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1672769941" rel="stylesheet">
-    <link href="/css/nucleus.css?1672769941" rel="stylesheet">
-    <link href="/css/fonts.css?1672769941" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1672769941" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1672769941" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1672769941" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1672769941" rel="stylesheet">
-    <link href="/css/variant.css?1672769941" rel="stylesheet">
-    <link href="/css/print.css?1672769941" rel="stylesheet" media="print">
-    <script src="/js/url.js?1672769941"></script>
-    <script src="/js/variant.js?1672769941"></script>
+    <link href="/css/fontawesome-all.min.css?1681681469" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1681681469" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1681681469" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1681681469" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1681681469" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1681681469" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1681681469" rel="stylesheet">
+    <link href="/css/nucleus.css?1681681469" rel="stylesheet">
+    <link href="/css/fonts.css?1681681469" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1681681469" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1681681469" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1681681469" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1681681469" rel="stylesheet">
+    <link href="/css/variant.css?1681681469" rel="stylesheet">
+    <link href="/css/print.css?1681681469" rel="stylesheet" media="print">
+    <script src="/js/url.js?1681681469"></script>
+    <script src="/js/variant.js?1681681469"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1672769941" defer></script>
+    <script src="/js/jquery.min.js?1681681469" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/getting-started/index.html">
     <div id="body" class="default-animation">
@@ -96,8 +96,28 @@
 <li><code>appclacks help</code> should work and give you information about the appclacks CLI</li>
 </ul>
 <h2 id="authentication">Authentication</h2>
-<p><strong>Creating a token</strong></p>
-<p>You need an API token in order to interact with the Appclacks cloud platform:</p>
+<p>You need an API token in order to interact with the Appclacks cloud platform.</p>
+<p><strong>Configure your CLI</strong></p>
+<p>Once the CLI is installed, run <code>appclacks login</code>. The command will ask you several informations:</p>
+<ul>
+<li>A profile name: i&rsquo;ll allow you to manage multiple appclacks accounts by selecting the profile to use in commands. If you don&rsquo;t have any profile configured, the first created profile will be the default one</li>
+<li>Your Appclacks account email</li>
+<li>Your Appclacks account password</li>
+</ul>
+<p>An authentication token will be automatically created for your account. A configuration file will be created in your OS configuration directory (<code>$HOME/.config/appclacks/appaclacks.yaml</code> on Linux, see <a href="https://pkg.go.dev/os#UserConfigDir">this Golang function</a> for other platforms) and automatically picked by the CLI.</p>
+<p>You should now be able to successfully run commands, for example <code>appclacks healthcheck list</code>. You can override the default profile used by the CLI by passing the <code>--profile</code> flag.</p>
+<p>This is a commented example of the configuration file format:</p>
+<pre tabindex="0"><code># default profile used by the CLI
+default-profile: my-profile
+profiles:
+    # profile name
+    my-profile:
+        # organization ID
+        organization-id: 5a062154-dc9f-11ed-9cd1-673503b45134
+        # API token
+        api-token: &lt;api_token&gt;
+</code></pre><p><strong>Creating a token manually</strong></p>
+<p>This alternative method allows you to create tokens without using <code>appclacks login</code>. It can be useful to get more control over the created tokens (to configure permissions on them for example).</p>
 <ul>
 <li>Define two environment variables containing your Appclacks account email and password: <code>export APPCLACKS_ACCOUNT_EMAIL='&lt;your_account_email'</code> and <code>export APPCLACKS_ACCOUNT_PASSWORD='&lt;your_account_password'</code>.</li>
 <li>You should now be able to get information about your organization using the <code>appclacks account organization</code> command.</li>
@@ -106,8 +126,8 @@ You can run <code>appclacks token create --help</code> to list all options for t
 </ul>
 <p>See the <a href="/guides/authentication/">Authentication</a> documentation for more information about permissions and tokens.</p>
 <p><strong>Using a token</strong></p>
-<p>Once you have a token, set the <code>APPCLACKS_ORGANIZATION_ID</code> environment variable to your organization ID, and the <code>APPCLACKS_TOKEN</code> environment variable to your token value.</p>
-<p>You should now be able to execute commands if your token allows them. <code>appclacks healthcheck list</code> should work for example.</p>
+<p>Once you have a token, set the <code>APPCLACKS_ORGANIZATION_ID</code> environment variable to your organization ID, and the <code>APPCLACKS_TOKEN</code> environment variable to your token value. These variables will override the configuration file if they exist.</p>
+<p>You should now be able to execute commands if your token allows them, for example <code>appclacks healthcheck list</code>.</p>
 <p>All commands accept an <code>--output</code> flag. By default, the <code>table</code> output is used but you can use the <code>json</code> output to get the JSON payload returned by the API.</p>
 <p>You can now follow the <a href="/guides">guides</a> to learn about how to use the Appclacks cloud platform.</p>
 
@@ -134,12 +154,12 @@ You can run <code>appclacks token create --help</code> to list all options for t
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1672769941" defer></script>
-        <script src="/js/lunr.min.js?1672769941" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1672769941" defer></script>
-        <script src="/js/lunr.multi.min.js?1672769941" defer></script>
-        <script src="/js/lunr.en.min.js?1672769941" defer></script>
-        <script src="/js/search.js?1672769941" defer></script>
+        <script src="/js/auto-complete.js?1681681469" defer></script>
+        <script src="/js/lunr.min.js?1681681469" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1681681469" defer></script>
+        <script src="/js/lunr.multi.min.js?1681681469" defer></script>
+        <script src="/js/lunr.en.min.js?1681681469" defer></script>
+        <script src="/js/search.js?1681681469" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -200,9 +220,9 @@ You can run <code>appclacks token create --help</code> to list all options for t
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1672769941" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1672769941" defer></script>
-    <script src="/js/featherlight.min.js?1672769941" defer></script>
-    <script src="/js/theme.js?1672769941" defer></script>
+    <script src="/js/clipboard.min.js?1681681469" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1681681469" defer></script>
+    <script src="/js/featherlight.min.js?1681681469" defer></script>
+    <script src="/js/theme.js?1681681469" defer></script>
   </body>
 </html>

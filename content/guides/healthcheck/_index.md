@@ -51,7 +51,7 @@ Some health check parameters cannot be used for health checks running one Appcla
 
 ## Managing health checks
 
-The `appclacks healthcheck list` and `appclacks healthcheck get --id <healthcheck_id>` commands can be used to retrieve health checks information.
+The `appclacks healthcheck list` and `appclacks healthcheck get --id <healthcheck_id>` (`get` also supports `--name <healthcheck_name>`) commands can be used to retrieve health checks information.
 
 You can update an existing health check with the `appclacks healthcheck <type> update` commands. All health checks fields which you want to configure should be specified, the update is a replace.
 

@@ -26,9 +26,36 @@ To install the CLI, you should:
 
 ## Authentication
 
-**Creating a token**
+You need an API token in order to interact with the Appclacks cloud platform.
 
-You need an API token in order to interact with the Appclacks cloud platform:
+**Configure your CLI**
+
+Once the CLI is installed, run `appclacks login`. The command will ask you several informations:
+- A profile name: i'll allow you to manage multiple appclacks accounts by selecting the profile to use in commands. If you don't have any profile configured, the first created profile will be the default one
+- Your Appclacks account email
+- Your Appclacks account password
+
+An authentication token will be automatically created for your account. A configuration file will be created in your OS configuration directory (`$HOME/.config/appclacks/appaclacks.yaml` on Linux, see [this Golang function](https://pkg.go.dev/os#UserConfigDir) for other platforms) and automatically picked by the CLI.
+
+You should now be able to successfully run commands, for example `appclacks healthcheck list`. You can override the default profile used by the CLI by passing the `--profile` flag.
+
+This is a commented example of the configuration file format:
+
+```
+# default profile used by the CLI
+default-profile: my-profile
+profiles:
+    # profile name
+    my-profile:
+        # organization ID
+        organization-id: 5a062154-dc9f-11ed-9cd1-673503b45134
+        # API token
+        api-token: <api_token>
+```
+
+**Creating a token manually**
+
+This alternative method allows you to create tokens without using `appclacks login`. It can be useful to get more control over the created tokens (to configure permissions on them for example).
 
 - Define two environment variables containing your Appclacks account email and password: `export APPCLACKS_ACCOUNT_EMAIL='<your_account_email'` and `export APPCLACKS_ACCOUNT_PASSWORD='<your_account_password'`.
 - You should now be able to get information about your organization using the `appclacks account organization` command.
@@ -39,9 +66,9 @@ See the [Authentication](/guides/authentication/) documentation for more informa
 
 **Using a token**
 
-Once you have a token, set the `APPCLACKS_ORGANIZATION_ID` environment variable to your organization ID, and the `APPCLACKS_TOKEN` environment variable to your token value.
+Once you have a token, set the `APPCLACKS_ORGANIZATION_ID` environment variable to your organization ID, and the `APPCLACKS_TOKEN` environment variable to your token value. These variables will override the configuration file if they exist.
 
-You should now be able to execute commands if your token allows them. `appclacks healthcheck list` should work for example.
+You should now be able to execute commands if your token allows them, for example `appclacks healthcheck list`.
 
 All commands accept an `--output` flag. By default, the `table` output is used but you can use the `json` output to get the JSON payload returned by the API.
 
