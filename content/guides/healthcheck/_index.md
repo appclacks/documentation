@@ -9,17 +9,17 @@ The [Appclacks CLI](/getting-started/#installing-the-appclacks-cli) can be used 
 
 You can choose when you create an health check if it should be executed or not by the Appclacks cloud platform.
 
-It's possible to create health checks on Appclacks but to host yourself the prober executing the health check, or to execute it by both Appclacks and on your infrastructure. See the [Appclacks on your private infrastructure](guides/private-infrastructure/) guide for more information about self-hosting.
+It's possible to create health checks on Appclacks but to host yourself the prober executing the health check, or to execute it by both Appclacks and on your infrastructure. See the [Appclacks on your private infrastructure](/guides/private-infrastructure/) guide for more information about self-hosting.
 
 ## Health check types
 
-Appclacks supports 4 healthchecks types today:
+Appclacks supports 5 healthchecks types today:
 
 - `HTTP(s)`: An HTTP request will be executed on the target. You can configure a lot of options about the health check request (method, path, headers, protocol, TLS configuration, body...) or the expected response (status code, body).
 - `TCP`: A TCP connection will be initiated with the target. You can also use this kind of health check to check that a TCP target is *not* responding, to be sure that a component is not exposed on the internet for example.
 - `TLS`: A TLS connection will be initiated by the target. If you host the prober yourself you can even configure which certificates to use for the connection.
 - `DNS`: A DNS resolution will be executed on a domain. You can use it to see if the resolution is working and to check the IP returned by it.
-- `Command`: An arbitrary command (with optional arguments) will be executed. The health check is considered failed if the command fails to execute.
+- `Command`: An arbitrary shell command (with optional arguments) will be executed. The health check is considered failed if the command fails to execute. This health check type cannot be executed by the Appclacks cloud platform but can run in your private infrastructure.
 
 ## Creating an health check
 

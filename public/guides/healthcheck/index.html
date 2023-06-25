@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.107.0">
+    <meta name="generator" content="Hugo 0.114.0">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
     <title>Managing health checks :: Appclacks documentation</title>
     <link href="/guides/healthcheck/index.xml" rel="alternate" type="application/rss+xml" title="Managing health checks :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1681681715" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1681681715" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1681681715" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1681681715" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1681681715" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1681681715" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1681681715" rel="stylesheet">
-    <link href="/css/nucleus.css?1681681715" rel="stylesheet">
-    <link href="/css/fonts.css?1681681715" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1681681715" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1681681715" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1681681715" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1681681715" rel="stylesheet">
-    <link href="/css/variant.css?1681681715" rel="stylesheet">
-    <link href="/css/print.css?1681681715" rel="stylesheet" media="print">
-    <script src="/js/url.js?1681681715"></script>
-    <script src="/js/variant.js?1681681715"></script>
+    <link href="/css/fontawesome-all.min.css?1687726393" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1687726393" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1687726393" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1687726393" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1687726393" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1687726393" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1687726393" rel="stylesheet">
+    <link href="/css/nucleus.css?1687726393" rel="stylesheet">
+    <link href="/css/fonts.css?1687726393" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1687726393" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1687726393" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1687726393" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1687726393" rel="stylesheet">
+    <link href="/css/variant.css?1687726393" rel="stylesheet">
+    <link href="/css/print.css?1687726393" rel="stylesheet" media="print">
+    <script src="/js/url.js?1687726393"></script>
+    <script src="/js/variant.js?1687726393"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1681681715" defer></script>
+    <script src="/js/jquery.min.js?1687726393" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/guides/healthcheck/index.html">
     <div id="body" class="default-animation">
@@ -88,15 +88,15 @@
 <p>The <a href="/getting-started/#installing-the-appclacks-cli">Appclacks CLI</a> can be used to manage health checks</p>
 <h2 id="how-health-checks-are-executed">How health checks are executed</h2>
 <p>You can choose when you create an health check if it should be executed or not by the Appclacks cloud platform.</p>
-<p>It&rsquo;s possible to create health checks on Appclacks but to host yourself the prober executing the health check, or to execute it by both Appclacks and on your infrastructure. See the <a href="guides/private-infrastructure/">Appclacks on your private infrastructure</a> guide for more information about self-hosting.</p>
+<p>It&rsquo;s possible to create health checks on Appclacks but to host yourself the prober executing the health check, or to execute it by both Appclacks and on your infrastructure. See the <a href="/guides/private-infrastructure/">Appclacks on your private infrastructure</a> guide for more information about self-hosting.</p>
 <h2 id="health-check-types">Health check types</h2>
-<p>Appclacks supports 4 healthchecks types today:</p>
+<p>Appclacks supports 5 healthchecks types today:</p>
 <ul>
 <li><code>HTTP(s)</code>: An HTTP request will be executed on the target. You can configure a lot of options about the health check request (method, path, headers, protocol, TLS configuration, body&hellip;) or the expected response (status code, body).</li>
 <li><code>TCP</code>: A TCP connection will be initiated with the target. You can also use this kind of health check to check that a TCP target is <em>not</em> responding, to be sure that a component is not exposed on the internet for example.</li>
 <li><code>TLS</code>: A TLS connection will be initiated by the target. If you host the prober yourself you can even configure which certificates to use for the connection.</li>
 <li><code>DNS</code>: A DNS resolution will be executed on a domain. You can use it to see if the resolution is working and to check the IP returned by it.</li>
-<li><code>Command</code>: An arbitrary command (with optional arguments) will be executed. The health check is considered failed if the command fails to execute.</li>
+<li><code>Command</code>: An arbitrary shell command (with optional arguments) will be executed. The health check is considered failed if the command fails to execute. This health check type cannot be executed by the Appclacks cloud platform but can run in your private infrastructure.</li>
 </ul>
 <h2 id="creating-an-health-check">Creating an health check</h2>
 <p>Use the <code>appclacks healthcheck &lt;type&gt; create</code> command to create a health check, where <code>&lt;type&gt;</code> is the health check type (<code>http</code>, <code>tcp</code>, <code>tls</code>, <code>dns</code>, <code>command</code>).</p>
@@ -158,12 +158,12 @@ Health checks results are paginated and only 100 results are returned. The <code
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1681681715" defer></script>
-        <script src="/js/lunr.min.js?1681681715" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1681681715" defer></script>
-        <script src="/js/lunr.multi.min.js?1681681715" defer></script>
-        <script src="/js/lunr.en.min.js?1681681715" defer></script>
-        <script src="/js/search.js?1681681715" defer></script>
+        <script src="/js/auto-complete.js?1687726393" defer></script>
+        <script src="/js/lunr.min.js?1687726393" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1687726393" defer></script>
+        <script src="/js/lunr.multi.min.js?1687726393" defer></script>
+        <script src="/js/lunr.en.min.js?1687726393" defer></script>
+        <script src="/js/search.js?1687726393" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -177,7 +177,8 @@ Health checks results are paginated and only 100 results are returned. The <code
           <li data-nav-id="/guides/healthcheck/index.html" class="dd-item active"><a href="/guides/healthcheck/index.html">Managing health checks</a></li>
           <li data-nav-id="/guides/authentication/index.html" class="dd-item"><a href="/guides/authentication/index.html">Authentication</a></li>
           <li data-nav-id="/guides/metrics/index.html" class="dd-item"><a href="/guides/metrics/index.html">Metrics and Prometheus integration</a></li>
-          <li data-nav-id="/guides/private-infrastructure/index.html" class="dd-item"><a href="/guides/private-infrastructure/index.html">Appclacks on your private infrastructure</a></li></ul></li>
+          <li data-nav-id="/guides/private-infrastructure/index.html" class="dd-item"><a href="/guides/private-infrastructure/index.html">Appclacks on your private infrastructure</a></li>
+          <li data-nav-id="/guides/account/index.html" class="dd-item"><a href="/guides/account/index.html">Managing your Appclacks account</a></li></ul></li>
         </ul>
         <div id="shortcuts">
           <div class="nav-title">More</div>
@@ -224,9 +225,9 @@ Health checks results are paginated and only 100 results are returned. The <code
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1681681715" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1681681715" defer></script>
-    <script src="/js/featherlight.min.js?1681681715" defer></script>
-    <script src="/js/theme.js?1681681715" defer></script>
+    <script src="/js/clipboard.min.js?1687726393" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1687726393" defer></script>
+    <script src="/js/featherlight.min.js?1687726393" defer></script>
+    <script src="/js/theme.js?1687726393" defer></script>
   </body>
 </html>
