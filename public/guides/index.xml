@@ -53,7 +53,10 @@ http: host: &amp;#34;0.0.0.0&amp;#34; port: 9013 discovery: http: - name: &amp;#
       <link>https://www.doc.appclacks.com/guides/account/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.doc.appclacks.com/guides/account/index.html</guid>
-      <description>Change your password Reset your password </description>
+      <description>You&amp;rsquo;ll need to install the Appclacks CLI in order to perform the actions described in this section.
+Change your password To change your password, execute the appclacks account password change CLI command.
+It will ask you for your account email, current password, and new password.
+Reset your password If you forgot your password, you can run appclacks account password send-reset-link --email &amp;lt;your-account-email&amp;gt;. You&amp;rsquo;ll receive a reset link in your email that will redirect you to a page to reset your password.</description>
     </item>
   </channel>
 </rss>
