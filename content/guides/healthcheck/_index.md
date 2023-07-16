@@ -100,6 +100,8 @@ These fields are available to all health checks:
 - `key`: A path to a file containing a certificate private key for mTLS (optional).
 - `cert`: A path to a file containing a certificate public key for mTLS (optional).
 - `cacert`: A path to a file containing certificates authorities to trust (optional).
+- `server-name`: the server name identifier to use (optional).
+- `insecure`: enable insecure TLS (default to `false`)
 
 ### TCP
 
