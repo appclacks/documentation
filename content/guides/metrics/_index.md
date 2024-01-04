@@ -59,3 +59,22 @@ healthcheck_duration_seconds_bucket{id="cc145703-af98-4c0b-96da-8e06dc934fc7", l
 healthcheck_total{id="cc145703-af98-4c0b-96da-8e06dc934fc7", name="mcorbin-blog", status="success", zone="fr-par-1"} 3
 ```
 
+## Useful Prometheus queries
+
+**Compute Health checks latency**
+
+This Prometheus query computes the p99 execution time for each health check on 5 minutes ranges. You can compute other quantiles by changing the `0.99` value to something else (`0.5`, `0.75`...).
+
+```
+histogram_quantile(0.99, sum(rate(healthcheck_duration_seconds_bucket{}[5m])) by (le, id, name))
+```
+
+You can easily alert on it by adding a condition at the end (for example `> 3`)
+
+**Detect failed health checks**
+
+This Prometheus query will return a result if an health check fails more than 3 times in 5 minutes. You can change the duration or the threshold depending on your health checks interval or duration before alerting.
+
+```
+sum by (id, name) (increase(healthcheck_total{status="failure"}[5m])) > 3
+```
