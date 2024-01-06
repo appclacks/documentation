@@ -16,7 +16,7 @@ How health checks are executed You can choose when you create an health check if
 It&amp;rsquo;s possible to create health checks on Appclacks but to host yourself the prober executing the health check, or to execute it by both Appclacks and on your infrastructure. See the Appclacks on your private infrastructure guide for more information about self-hosting.</description>
     </item>
     <item>
-      <title>Authentication</title>
+      <title>API tokens management</title>
       <link>https://www.doc.appclacks.com/guides/authentication/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.doc.appclacks.com/guides/authentication/index.html</guid>
@@ -24,6 +24,24 @@ It&amp;rsquo;s possible to create health checks on Appclacks but to host yoursel
 API Tokens permissions You can attach permissions to API tokens to only allow some actions when used. The --permission flag can be used (and repeated) on the appclacks token create command to configure permissions.
 The support permissions are:
 *: Enable all API calls GetOrganization: Get information about your organization ListAPITokens: List API tokens GetAPIToken: Get information about a specific API token DeleteAPIToken: Delete API tokens GetHealthcheck: Get information about a specific API token CreateHealthcheck: Create health checks DeleteHealthcheck: Delete health checks UpdateHealthcheck: Update health checks ListHealthchecks: List health checks ListHealthchecksResults: List health checks results GetHealthchecksMetrics: Get health checks metrics.</description>
+    </item>
+    <item>
+      <title>Terraform integration</title>
+      <link>https://www.doc.appclacks.com/guides/terraform/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.doc.appclacks.com/guides/terraform/index.html</guid>
+      <description>You can manage your health checks using the Appclacks Terraform provider. The source code of the provider is available on Github.
+Examples are also availabie in the provider Github repository.
+Authentication You need to configure authentication against the Appclacks API to make the provider work.
+The Appclacks authentication documentation explains how authentication works and how to create an API token. You can either:
+Export the APPCLACKS_ORGANIZATION_ID and APPCLACKS_TOKEN values before running Terraform.</description>
+    </item>
+    <item>
+      <title>Kubernetes operator</title>
+      <link>https://www.doc.appclacks.com/guides/kubernetes/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.doc.appclacks.com/guides/kubernetes/index.html</guid>
+      <description>TODO</description>
     </item>
     <item>
       <title>Metrics and Prometheus integration</title>

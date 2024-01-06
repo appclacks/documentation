@@ -62,7 +62,7 @@ This alternative method allows you to create tokens without using `appclacks log
 - Create a new API token with the command `appclacks token create`, for example `appclacks token create --name "admin"`.
 You can run `appclacks token create --help` to list all options for this command. You can for example configure the allowed API calls for the token and configure a TTL on it.
 
-See the [Authentication](/guides/authentication/) documentation for more information about permissions and tokens.
+See the [API token management](/guides/authentication/) documentation for more information about permissions and tokens.
 
 **Using a token**
 

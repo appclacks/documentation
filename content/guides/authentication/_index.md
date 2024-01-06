@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: API tokens management
 weight: 35
 ---
 
