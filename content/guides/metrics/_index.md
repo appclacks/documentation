@@ -73,8 +73,11 @@ You can easily alert on it by adding a condition at the end (for example `> 3`)
 
 **Detect failed health checks**
 
-This Prometheus query will return a result if an health check fails more than 3 times in 5 minutes. You can change the duration or the threshold depending on your health checks interval or duration before alerting.
+Appclacks executes health checks from 2 zones.
+We recommend you to alert if health checks fail from several zones during the same timeframe to avoid false positive.
+
+This Prometheus query will for example be triggered if the 2 zones are reporting errors on a 5 minutes timeframe (don't hesitate to adjust the timeframe based on your needs and health checks interval):
 
 ```
-sum by (id, name) (increase(healthcheck_total{status="failure"}[5m])) > 3
+count(sum by (id, name, zone) (increase(healthcheck_total{status="failure", name="appclacks-api-failure"}[5m]))) > 1
 ```
