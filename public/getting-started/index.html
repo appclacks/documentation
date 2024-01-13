@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.119.0">
+    <meta name="generator" content="Hugo 0.121.2">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
     <title>Getting Started :: Appclacks documentation</title>
     <link href="/getting-started/index.xml" rel="alternate" type="application/rss+xml" title="Getting Started :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1704562708" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1704562708" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1704562708" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1704562708" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1704562708" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1704562708" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1704562708" rel="stylesheet">
-    <link href="/css/nucleus.css?1704562708" rel="stylesheet">
-    <link href="/css/fonts.css?1704562708" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1704562708" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1704562708" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1704562708" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1704562708" rel="stylesheet">
-    <link href="/css/variant.css?1704562708" rel="stylesheet">
-    <link href="/css/print.css?1704562708" rel="stylesheet" media="print">
-    <script src="/js/url.js?1704562708"></script>
-    <script src="/js/variant.js?1704562708"></script>
+    <link href="/css/fontawesome-all.min.css?1705174306" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1705174306" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1705174306" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1705174306" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1705174306" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1705174306" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1705174306" rel="stylesheet">
+    <link href="/css/nucleus.css?1705174306" rel="stylesheet">
+    <link href="/css/fonts.css?1705174306" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1705174306" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1705174306" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1705174306" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1705174306" rel="stylesheet">
+    <link href="/css/variant.css?1705174306" rel="stylesheet">
+    <link href="/css/print.css?1705174306" rel="stylesheet" media="print">
+    <script src="/js/url.js?1705174306"></script>
+    <script src="/js/variant.js?1705174306"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1704562708" defer></script>
+    <script src="/js/jquery.min.js?1705174306" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/getting-started/index.html">
     <div id="body" class="default-animation">
@@ -69,6 +69,10 @@
     <li><a href="#creating-your-organization">Creating your organization</a></li>
     <li><a href="#installing-the-appclacks-cli">Installing the Appclacks CLI</a></li>
     <li><a href="#authentication">Authentication</a></li>
+    <li><a href="#create-your-first-health-checks">Create your first health checks</a></li>
+    <li><a href="#retrieving-health-check-results">Retrieving health check results</a></li>
+    <li><a href="#retrieving-health-check-metrics">Retrieving health check metrics</a></li>
+    <li><a href="#going-further">Going further</a></li>
   </ul>
 </nav>
             </div>
@@ -82,54 +86,53 @@
           <article class="default">
 <h1 id="getting-started">Getting Started</h1>
 
+<p>This guide explains how to use the Appclacks CLI to create your first health check on Appclacks.</p>
 <h2 id="creating-your-organization">Creating your organization</h2>
-<p>Appclacks organizations are entities that can hold several accounts.</p>
-<p>Appclacks is currently in Alpha. To use the platform, you should subscribe to it on the Appclacks <a href="https://appclacks.com/#register">main website</a>. You will then receive an email with an activation link.</p>
+<p>To use the platform, you should subscribe to it on the Appclacks <a href="https://appclacks.com/#register">main website</a>. You will then receive an email with an activation link.</p>
 <p>The email will also provide you the ID of your organization.</p>
 <p>For now, an organization can only contain one account that is automatically generated when the organization is created. Supporting multiple accounts within the same organization is in the roadmap.</p>
+<p>You should now be able to log in in the <a href="https://api.appclacks.com">Appclacks user interface</a>. This interface is today a read-only one, using the CLI or other integrations are required to create resources.</p>
 <h2 id="installing-the-appclacks-cli">Installing the Appclacks CLI</h2>
-<p>We don&rsquo;t provide a user interface, for now, to work with the Appclacks cloud platform. We provide a full-featured <a href="https://github.com/appclacks/cli">command line interface</a> to interact with the platform.</p>
+<p>We provide a full-featured <a href="https://github.com/appclacks/cli">command line interface</a> to interact with the platform.</p>
 <p>To install the CLI, you should:</p>
 <ul>
 <li>Get the latest release from the <a href="https://github.com/appclacks/cli/releases">releases page</a>. Be sure to download the archive for your platform and operating system.</li>
 <li>Unarchive it and add the <code>appclacks</code> binary into your path.</li>
-<li><code>appclacks help</code> should work and give you information about the appclacks CLI</li>
+<li><code>appclacks help</code> should work and give you information about the appclacks CLI. Each subcommands described in this page have a lot of options availables and all of them supports an <code>--help</code> flag (for example: <code>appclacks healthcheck http create --help</code>).</li>
 </ul>
 <h2 id="authentication">Authentication</h2>
 <p>You need an API token in order to interact with the Appclacks cloud platform.</p>
-<p><strong>Configure your CLI</strong></p>
-<p>Once the CLI is installed, run <code>appclacks login</code>. The command will ask you several informations:</p>
+<p>Run <code>appclacks login</code> to configure authentication. The command will ask you several informations:</p>
 <ul>
 <li>A profile name: i&rsquo;ll allow you to manage multiple appclacks accounts by selecting the profile to use in commands. If you don&rsquo;t have any profile configured, the first created profile will be the default one</li>
 <li>Your Appclacks account email</li>
 <li>Your Appclacks account password</li>
 </ul>
 <p>An authentication token will be automatically created for your account. A configuration file will be created in your OS configuration directory (<code>$HOME/.config/appclacks/appaclacks.yaml</code> on Linux, see <a href="https://pkg.go.dev/os#UserConfigDir">this Golang function</a> for other platforms) and automatically picked by the CLI.</p>
-<p>You should now be able to successfully run commands, for example <code>appclacks healthcheck list</code>. You can override the default profile used by the CLI by passing the <code>--profile</code> flag.</p>
-<p>This is a commented example of the configuration file format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># default profile used by the CLI</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">default-profile</span>: <span style="color:#ae81ff">my-profile</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">profiles</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># profile name</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">my-profile</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># organization ID</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">organization-id</span>: <span style="color:#ae81ff">5a062154-dc9f-11ed-9cd1-673503b45134</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># API token</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">api-token</span>: <span style="color:#ae81ff">&lt;api_token&gt;</span>
-</span></span></code></pre></div><p><strong>Creating a token manually</strong></p>
-<p>This alternative method allows you to create tokens without using <code>appclacks login</code>. It can be useful to get more control over the created tokens (to configure permissions on them for example).</p>
-<ul>
-<li>Define two environment variables containing your Appclacks account email and password: <code>export APPCLACKS_ACCOUNT_EMAIL='&lt;your_account_email'</code> and <code>export APPCLACKS_ACCOUNT_PASSWORD='&lt;your_account_password'</code>.</li>
-<li>You should now be able to get information about your organization using the <code>appclacks account organization</code> command.</li>
-<li>Create a new API token with the command <code>appclacks token create</code>, for example <code>appclacks token create --name &quot;admin&quot;</code>.
-You can run <code>appclacks token create --help</code> to list all options for this command. You can for example configure the allowed API calls for the token and configure a TTL on it.</li>
-</ul>
-<p>See the <a href="/guides/authentication/">API token management</a> documentation for more information about permissions and tokens.</p>
-<p><strong>Using a token</strong></p>
-<p>Once you have a token, set the <code>APPCLACKS_ORGANIZATION_ID</code> environment variable to your organization ID, and the <code>APPCLACKS_TOKEN</code> environment variable to your token value. These variables will override the configuration file if they exist.</p>
-<p>You should now be able to execute commands if your token allows them, for example <code>appclacks healthcheck list</code>.</p>
-<p>All commands accept an <code>--output</code> flag. By default, the <code>table</code> output is used but you can use the <code>json</code> output to get the JSON payload returned by the API.</p>
-<p>You can now follow the <a href="/guides">guides</a> to learn about how to use the Appclacks cloud platform.</p>
+<p>You should now be able to successfully run commands, for example <code>appclacks healthcheck list</code>.</p>
+<h2 id="create-your-first-health-checks">Create your first health checks</h2>
+<p>Let&rsquo;s create an HTTP health check targeting <code>GET https://api.appclacks.com/healthz</code> every 30 seconds:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>appclacks healthcheck http create api.appclacks.com --target api.appclacks.com --path <span style="color:#e6db74">&#34;/healthz&#34;</span> --name <span style="color:#e6db74">&#34;http-check-example&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ID                                    Name                Description  Interval  Timeout  Labels  Enabled  Definition
+</span></span><span style="display:flex;"><span>--                                    ----                -----------  --------  -------  ------  -------  ----------
+</span></span><span style="display:flex;"><span>d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  http-check-example               60s       5s       null    true     <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;valid-status&#34;</span>:<span style="color:#f92672">[</span>200<span style="color:#f92672">]</span>,<span style="color:#e6db74">&#34;target&#34;</span>:<span style="color:#e6db74">&#34;api.appclacks.com&#34;</span>,<span style="color:#e6db74">&#34;method&#34;</span>:<span style="color:#e6db74">&#34;GET&#34;</span>,<span style="color:#e6db74">&#34;port&#34;</span>:443,<span style="color:#e6db74">&#34;redirect&#34;</span>:true,<span style="color:#e6db74">&#34;protocol&#34;</span>:<span style="color:#e6db74">&#34;https&#34;</span>,<span style="color:#e6db74">&#34;path&#34;</span>:<span style="color:#e6db74">&#34;/healthz&#34;</span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Appclacks will start executing the health check from multiple countries.</p>
+<p>You can then list your health checks with <code>appclacks healthcheck list</code>, or retrieve its configuration with <code>appclacks healthcheck get --name http-check-example</code> (or <code>--id d9b17d26-a4cd-47f0-86c0-6cf02069a9dc</code>).</p>
+<h2 id="retrieving-health-check-results">Retrieving health check results</h2>
+<p>Retrieve health checks results executed by Appclacks by launching <code>appclacks healthcheck result list --healthcheck-id d9b17d26-a4cd-47f0-86c0-6cf02069a9dc</code>:</p>
+<pre tabindex="0"><code>appclacks healthcheck result list --healthcheck-id d9b17d26-a4cd-47f0-86c0-6cf02069a9dc
+ID                                    Created At                     Success  Duration (ms)  Summary                                    Message  Healthcheck ID                        Labels
+--                                    ----------                     -------  -------------  -------                                    -------  --------------                        ------
+f4a3f05f-4d89-415b-b189-c42e467d9f06  2024-01-10 21:39:56 +0000 UTC  true     5              HTTP healthcheck on api.appclacks.com:443  success  d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  {&#34;healthcheck_name&#34;:&#34;http-check-example&#34;,&#34;zone&#34;:&#34;fr-par-1&#34;}
+d32c246c-5ac8-473e-ac9a-1b100e4a6457  2024-01-10 21:39:56 +0000 UTC  true     37             HTTP healthcheck on api.appclacks.com:443  success  d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  {&#34;healthcheck_name&#34;:&#34;http-check-example&#34;,&#34;zone&#34;:&#34;pl-waw-1&#34;}
+</code></pre><p>Appclacks commands also support JSON outputs by passing the <code>-o json</code> flag.</p>
+<h2 id="retrieving-health-check-metrics">Retrieving health check metrics</h2>
+<p>You can retrieve health checks metrics in Prometheus format by running <code>appclacks healthcheck metrics get</code>. The <a href="https://www.doc.appclacks.com/guides/metrics/">Prometheus integration documentation</a> explains how to configure Prometheus (or any Prometheus-compatible tool) to scrape Appclacks metrics.</p>
+<h2 id="going-further">Going further</h2>
+<p>The dedicated <a href="/guides/healthcheck/">health check documentation page</a> explains all health checks kinds and options available on Appclacks.</p>
+<p>The <a href="/guides/">guides</a> will deep dive on topics like Terraform, Kubernetes, Prometheus integrations, or how to run Appclacks health checks on your private infrastructure.</p>
+<p>Happy monitoring !</p>
 
             <footer class="footline">
             </footer>
@@ -154,12 +157,12 @@ You can run <code>appclacks token create --help</code> to list all options for t
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1704562708" defer></script>
-        <script src="/js/lunr.min.js?1704562708" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1704562708" defer></script>
-        <script src="/js/lunr.multi.min.js?1704562708" defer></script>
-        <script src="/js/lunr.en.min.js?1704562708" defer></script>
-        <script src="/js/search.js?1704562708" defer></script>
+        <script src="/js/auto-complete.js?1705174306" defer></script>
+        <script src="/js/lunr.min.js?1705174306" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1705174306" defer></script>
+        <script src="/js/lunr.multi.min.js?1705174306" defer></script>
+        <script src="/js/lunr.en.min.js?1705174306" defer></script>
+        <script src="/js/search.js?1705174306" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -171,7 +174,7 @@ You can run <code>appclacks token create --help</code> to list all options for t
           <li data-nav-id="/getting-started/index.html" class="dd-item active"><a href="/getting-started/index.html">Getting Started</a></li>
           <li data-nav-id="/guides/index.html" class="dd-item alwaysopen"><a href="/guides/index.html">Guides</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290">
           <li data-nav-id="/guides/healthcheck/index.html" class="dd-item"><a href="/guides/healthcheck/index.html">Managing health checks</a></li>
-          <li data-nav-id="/guides/authentication/index.html" class="dd-item"><a href="/guides/authentication/index.html">API tokens management</a></li>
+          <li data-nav-id="/guides/authentication/index.html" class="dd-item"><a href="/guides/authentication/index.html">Authentication and API tokens</a></li>
           <li data-nav-id="/guides/terraform/index.html" class="dd-item"><a href="/guides/terraform/index.html">Terraform integration</a></li>
           <li data-nav-id="/guides/kubernetes/index.html" class="dd-item"><a href="/guides/kubernetes/index.html">Kubernetes operator</a></li>
           <li data-nav-id="/guides/metrics/index.html" class="dd-item"><a href="/guides/metrics/index.html">Metrics and Prometheus integration</a></li>
@@ -223,9 +226,9 @@ You can run <code>appclacks token create --help</code> to list all options for t
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1704562708" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1704562708" defer></script>
-    <script src="/js/featherlight.min.js?1704562708" defer></script>
-    <script src="/js/theme.js?1704562708" defer></script>
+    <script src="/js/clipboard.min.js?1705174306" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1705174306" defer></script>
+    <script src="/js/featherlight.min.js?1705174306" defer></script>
+    <script src="/js/theme.js?1705174306" defer></script>
   </body>
 </html>

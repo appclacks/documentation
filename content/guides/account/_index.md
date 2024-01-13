@@ -13,4 +13,4 @@ It will ask you for your account email, current password, and new password.
 
 ## Reset your password
 
-If you forgot your password, you can run `appclacks account password send-reset-link --email <your-account-email>`. You'll receive a reset link in your email that will redirect you to a page to reset your password.
+Follow the procedure in [the reset password page](https://api.appclacks.com/reset-password) to reset your password.

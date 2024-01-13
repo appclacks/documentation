@@ -16,14 +16,13 @@ How health checks are executed You can choose when you create an health check if
 It&amp;rsquo;s possible to create health checks on Appclacks but to host yourself the prober executing the health check, or to execute it by both Appclacks and on your infrastructure. See the Appclacks on your private infrastructure guide for more information about self-hosting.</description>
     </item>
     <item>
-      <title>API tokens management</title>
+      <title>Authentication and API tokens</title>
       <link>https://www.doc.appclacks.com/guides/authentication/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.doc.appclacks.com/guides/authentication/index.html</guid>
-      <description>The Getting Started section explains how to install the Appclacks CLI, create an organization and a new token. This guide will go into detail about API token management.
-API Tokens permissions You can attach permissions to API tokens to only allow some actions when used. The --permission flag can be used (and repeated) on the appclacks token create command to configure permissions.
-The support permissions are:
-*: Enable all API calls GetOrganization: Get information about your organization ListAPITokens: List API tokens GetAPIToken: Get information about a specific API token DeleteAPIToken: Delete API tokens GetHealthcheck: Get information about a specific API token CreateHealthcheck: Create health checks DeleteHealthcheck: Delete health checks UpdateHealthcheck: Update health checks ListHealthchecks: List health checks ListHealthchecksResults: List health checks results GetHealthchecksMetrics: Get health checks metrics.</description>
+      <description>This page explains how to create Appclacks API token and the supported methods to authenticate against the API.
+We recommend you to follow the getting started section that explains how to install and configure the Appclacks CLI before reading this documentation.
+Authentication on Appclacks An API token is needed to authenticate against Appclacks. The getting started section explains how to use the appclacks login CLI command to create your first token.</description>
     </item>
     <item>
       <title>Terraform integration</title>
@@ -78,7 +77,7 @@ http: host: &amp;#34;0.0.0.0&amp;#34; port: 9013 discovery: http: - name: &amp;#
       <description>You&amp;rsquo;ll need to install the Appclacks CLI in order to perform the actions described in this section.
 Change your password To change your password, execute the appclacks account password change CLI command.
 It will ask you for your account email, current password, and new password.
-Reset your password If you forgot your password, you can run appclacks account password send-reset-link --email &amp;lt;your-account-email&amp;gt;. You&amp;rsquo;ll receive a reset link in your email that will redirect you to a page to reset your password.</description>
+Reset your password Follow the procedure in the reset password page to reset your password.</description>
     </item>
   </channel>
 </rss>

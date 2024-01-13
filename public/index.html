@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.119.0">
+    <meta name="generator" content="Hugo 0.121.2">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
     <title>Appclacks :: Appclacks documentation</title>
     <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Appclacks :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1704562708" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1704562708" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1704562708" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1704562708" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1704562708" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1704562708" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1704562708" rel="stylesheet">
-    <link href="/css/nucleus.css?1704562708" rel="stylesheet">
-    <link href="/css/fonts.css?1704562708" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1704562708" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1704562708" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1704562708" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1704562708" rel="stylesheet">
-    <link href="/css/variant.css?1704562708" rel="stylesheet">
-    <link href="/css/print.css?1704562708" rel="stylesheet" media="print">
-    <script src="/js/url.js?1704562708"></script>
-    <script src="/js/variant.js?1704562708"></script>
+    <link href="/css/fontawesome-all.min.css?1705174306" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1705174306" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1705174306" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1705174306" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1705174306" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1705174306" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1705174306" rel="stylesheet">
+    <link href="/css/nucleus.css?1705174306" rel="stylesheet">
+    <link href="/css/fonts.css?1705174306" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1705174306" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1705174306" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1705174306" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1705174306" rel="stylesheet">
+    <link href="/css/variant.css?1705174306" rel="stylesheet">
+    <link href="/css/print.css?1705174306" rel="stylesheet" media="print">
+    <script src="/js/url.js?1705174306"></script>
+    <script src="/js/variant.js?1705174306"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1704562708" defer></script>
+    <script src="/js/jquery.min.js?1705174306" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/index.html">
     <div id="body" class="default-animation">
@@ -67,6 +67,7 @@
   <ul>
     <li><a href="#open-ecosystem">Open ecosystem</a></li>
     <li><a href="#good-tooling">Good tooling</a></li>
+    <li><a href="#whats-next">What&rsquo;s next</a></li>
   </ul>
 </nav>
             </div>
@@ -82,7 +83,7 @@
 <h1 id="welcome-to-the-appclacks-documentation">Welcome to the Appclacks documentation</h1>
 <p>Appclacks is a cloud monitoring platform allowing users to create, manage and run various health checks to monitor the health of websites and infrastructures.</p>
 <p>Appclacks can monitor public endpoints by executing configured health checks on them from multiple point of presences. But unlike alternatives, Appclacks can also be used to monitor private infrastructures.
-The prober used by Appclacks named Cabourotte is a free software that you can host on your private infrastructure and plug on the Appclacks API to autoconfigure it.</p>
+The prober used by Appclacks named Cabourotte <a href="https://github.com/appclacks/cabourotte">is a free software</a> that you can host on your private infrastructure and plug on the Appclacks API to autoconfigure it.</p>
 <p>This flexibility allows you to manage your health checks globally without having to use a different tool for public and for private infrastructures.</p>
 <p>
 		
@@ -94,7 +95,10 @@ The prober used by Appclacks named Cabourotte is a free software that you can ho
 Appclacks also exposes the metrics of the health checks executed on the cloud platform as <a href="https://prometheus.io/">Prometheus</a> metrics (same format) on its API. This means that you can integrate the Appclacks cloud platform with your existing monitoring system.</p>
 <h2 id="good-tooling">Good tooling</h2>
 <p>All actions on the Appclacks cloud platform are performed through its API. We know at Appclacks the importance of good tooling for users, and that&rsquo;s why it&rsquo;s one of the primary focuses of the Appclacks team.</p>
-<p>We provide a full-featured <a href="https://github.com/appclacks/cli">CLI</a> and a <a href="https://github.com/appclacks/terraform-provider-appclacks/">Terraform provider</a> to let you efficiently configure the platform.</p>
+<p>We provide a full-featured <a href="https://github.com/appclacks/cli">CLI</a>, a <a href="https://github.com/appclacks/terraform-provider-appclacks/">Terraform provider</a> and a <a href="/guides/kubernetes/">Kubernetes operator</a> to let you efficiently configure the platform.</p>
+<h2 id="whats-next">What&rsquo;s next</h2>
+<p>Follow the <a href="/getting-started/">getting started</a> section to learn how to start using Appclacks.</p>
+<p>If you need support or want to provide</p>
 
             <footer class="footline">
             </footer>
@@ -119,12 +123,12 @@ Appclacks also exposes the metrics of the health checks executed on the cloud pl
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1704562708" defer></script>
-        <script src="/js/lunr.min.js?1704562708" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1704562708" defer></script>
-        <script src="/js/lunr.multi.min.js?1704562708" defer></script>
-        <script src="/js/lunr.en.min.js?1704562708" defer></script>
-        <script src="/js/search.js?1704562708" defer></script>
+        <script src="/js/auto-complete.js?1705174306" defer></script>
+        <script src="/js/lunr.min.js?1705174306" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1705174306" defer></script>
+        <script src="/js/lunr.multi.min.js?1705174306" defer></script>
+        <script src="/js/lunr.en.min.js?1705174306" defer></script>
+        <script src="/js/search.js?1705174306" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -136,7 +140,7 @@ Appclacks also exposes the metrics of the health checks executed on the cloud pl
           <li data-nav-id="/getting-started/index.html" class="dd-item"><a href="/getting-started/index.html">Getting Started</a></li>
           <li data-nav-id="/guides/index.html" class="dd-item alwaysopen"><a href="/guides/index.html">Guides</a><ul id="subsections-cecd4ea74d1b57416f3e6afae6030290">
           <li data-nav-id="/guides/healthcheck/index.html" class="dd-item"><a href="/guides/healthcheck/index.html">Managing health checks</a></li>
-          <li data-nav-id="/guides/authentication/index.html" class="dd-item"><a href="/guides/authentication/index.html">API tokens management</a></li>
+          <li data-nav-id="/guides/authentication/index.html" class="dd-item"><a href="/guides/authentication/index.html">Authentication and API tokens</a></li>
           <li data-nav-id="/guides/terraform/index.html" class="dd-item"><a href="/guides/terraform/index.html">Terraform integration</a></li>
           <li data-nav-id="/guides/kubernetes/index.html" class="dd-item"><a href="/guides/kubernetes/index.html">Kubernetes operator</a></li>
           <li data-nav-id="/guides/metrics/index.html" class="dd-item"><a href="/guides/metrics/index.html">Metrics and Prometheus integration</a></li>
@@ -188,9 +192,9 @@ Appclacks also exposes the metrics of the health checks executed on the cloud pl
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1704562708" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1704562708" defer></script>
-    <script src="/js/featherlight.min.js?1704562708" defer></script>
-    <script src="/js/theme.js?1704562708" defer></script>
+    <script src="/js/clipboard.min.js?1705174306" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1705174306" defer></script>
+    <script src="/js/featherlight.min.js?1705174306" defer></script>
+    <script src="/js/theme.js?1705174306" defer></script>
   </body>
 </html>
