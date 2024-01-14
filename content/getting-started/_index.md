@@ -20,7 +20,15 @@ You should now be able to log in in the [Appclacks user interface](https://api.a
 
 We provide a full-featured [command line interface](https://github.com/appclacks/cli) to interact with the platform.
 
-To install the CLI, you should:
+** MacOS**
+
+You can use brew to install the latest release of the Appclacks LI: `brew install appclacks/tap/appclacks`.
+
+You can also install the prebuilt MacOS binaries as described below.
+
+**Other platforms and prebuilt binaries**
+
+To install the CLI from the prebuilt binaries, you should:
 
 - Get the latest release from the [releases page](https://github.com/appclacks/cli/releases). Be sure to download the archive for your platform and operating system.
 - Unarchive it and add the `appclacks` binary into your path.
