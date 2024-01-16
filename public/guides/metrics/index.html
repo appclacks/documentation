@@ -9,19 +9,19 @@
     <title>Metrics and Prometheus integration :: Appclacks documentation</title>
     <link href="/guides/metrics/index.xml" rel="alternate" type="application/rss+xml" title="Metrics and Prometheus integration :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1705273942" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1705273942" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1705273942" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1705273942" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1705273942" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1705273942" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1705273942" rel="stylesheet">
-    <link href="/css/nucleus.css?1705273942" rel="stylesheet">
-    <link href="/css/fonts.css?1705273942" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1705273942" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1705273942" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1705273942" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1705273942" rel="stylesheet">
-    <link href="/css/variant.css?1705273942" rel="stylesheet">
-    <link href="/css/print.css?1705273942" rel="stylesheet" media="print">
-    <script src="/js/url.js?1705273942"></script>
-    <script src="/js/variant.js?1705273942"></script>
+    <link href="/css/fontawesome-all.min.css?1705431064" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1705431064" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1705431064" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1705431064" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1705431064" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1705431064" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1705431064" rel="stylesheet">
+    <link href="/css/nucleus.css?1705431064" rel="stylesheet">
+    <link href="/css/fonts.css?1705431064" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1705431064" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1705431064" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1705431064" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1705431064" rel="stylesheet">
+    <link href="/css/variant.css?1705431064" rel="stylesheet">
+    <link href="/css/print.css?1705431064" rel="stylesheet" media="print">
+    <script src="/js/url.js?1705431064"></script>
+    <script src="/js/variant.js?1705431064"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1705273942" defer></script>
+    <script src="/js/jquery.min.js?1705431064" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/guides/metrics/index.html">
     <div id="body" class="default-animation">
@@ -128,13 +128,17 @@ healthcheck_total{id=&#34;cc145703-af98-4c0b-96da-8e06dc934fc7&#34;, name=&#34;m
 <p><strong>Compute Health checks latency</strong></p>
 <p>This Prometheus query computes the p99 execution time for each health check on 5 minutes ranges. You can compute other quantiles by changing the <code>0.99</code> value to something else (<code>0.5</code>, <code>0.75</code>&hellip;).</p>
 <pre tabindex="0"><code>histogram_quantile(0.99, sum(rate(healthcheck_duration_seconds_bucket{}[5m])) by (le, id, name))
-</code></pre><p>You can easily alert on it by adding a condition at the end (for example <code>&gt; 3</code>)</p>
+</code></pre><p>You can easily alert on it by adding a condition at the end (for example <code>&gt; 3</code>). You can also add the <code>zone</code> label in <code>by</code> to have per-zone latency.</p>
 <p><strong>Detect failed health checks</strong></p>
 <p>Appclacks executes health checks from 2 zones.
 We recommend you to alert if health checks fail from several zones during the same timeframe to avoid false positive.</p>
 <p>This Prometheus query will for example be triggered if the 2 zones are reporting errors on a 5 minutes timeframe (don&rsquo;t hesitate to adjust the timeframe based on your needs and health checks interval):</p>
 <pre tabindex="0"><code>count(sum by (id, name, zone) (increase(healthcheck_total{status=&#34;failure&#34;, name=&#34;appclacks-api-failure&#34;}[5m]))) &gt; 1
-</code></pre>
+</code></pre><p><strong>Execution rate rates</strong></p>
+<p>Use this query to compute the rate of health check executions for each health check, per zone and status:</p>
+<pre tabindex="0"><code>sum by (name, id, zone, status) (rate(healthcheck_total{}[5m]))
+</code></pre><p>You can also set labels in <code>healthcheck_total{}</code> to filter for example only failed health check (by adding <code>status=&quot;failure&quot;</code> in this case).</p>
+
             <footer class="footline">
             </footer>
           </article>
@@ -158,12 +162,12 @@ We recommend you to alert if health checks fail from several zones during the sa
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1705273942" defer></script>
-        <script src="/js/lunr.min.js?1705273942" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1705273942" defer></script>
-        <script src="/js/lunr.multi.min.js?1705273942" defer></script>
-        <script src="/js/lunr.en.min.js?1705273942" defer></script>
-        <script src="/js/search.js?1705273942" defer></script>
+        <script src="/js/auto-complete.js?1705431064" defer></script>
+        <script src="/js/lunr.min.js?1705431064" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1705431064" defer></script>
+        <script src="/js/lunr.multi.min.js?1705431064" defer></script>
+        <script src="/js/lunr.en.min.js?1705431064" defer></script>
+        <script src="/js/search.js?1705431064" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -227,9 +231,9 @@ We recommend you to alert if health checks fail from several zones during the sa
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1705273942" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1705273942" defer></script>
-    <script src="/js/featherlight.min.js?1705273942" defer></script>
-    <script src="/js/theme.js?1705273942" defer></script>
+    <script src="/js/clipboard.min.js?1705431064" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1705431064" defer></script>
+    <script src="/js/featherlight.min.js?1705431064" defer></script>
+    <script src="/js/theme.js?1705431064" defer></script>
   </body>
 </html>

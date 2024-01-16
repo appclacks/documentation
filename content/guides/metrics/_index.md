@@ -69,7 +69,7 @@ This Prometheus query computes the p99 execution time for each health check on 5
 histogram_quantile(0.99, sum(rate(healthcheck_duration_seconds_bucket{}[5m])) by (le, id, name))
 ```
 
-You can easily alert on it by adding a condition at the end (for example `> 3`)
+You can easily alert on it by adding a condition at the end (for example `> 3`). You can also add the `zone` label in `by` to have per-zone latency.
 
 **Detect failed health checks**
 
@@ -81,3 +81,13 @@ This Prometheus query will for example be triggered if the 2 zones are reporting
 ```
 count(sum by (id, name, zone) (increase(healthcheck_total{status="failure", name="appclacks-api-failure"}[5m]))) > 1
 ```
+
+**Execution rate rates**
+
+Use this query to compute the rate of health check executions for each health check, per zone and status:
+
+```
+sum by (name, id, zone, status) (rate(healthcheck_total{}[5m]))
+```
+
+You can also set labels in `healthcheck_total{}` to filter for example only failed health check (by adding `status="failure"` in this case).
