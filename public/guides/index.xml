@@ -47,16 +47,15 @@ Creating the required CRDs
 All CRD files present in this directory on Github should be applied to your cluster.</description>
     </item>
     <item>
-      <title>Metrics and Prometheus integration</title>
+      <title>Metrics, Prometheus and Grafana integration</title>
       <link>https://www.doc.appclacks.com/guides/metrics/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://www.doc.appclacks.com/guides/metrics/index.html</guid>
-      <description>The Appclacks API exposes health checks metrics in the Prometheus format.
+      <description>The Appclacks API exposes health checks metrics in the Prometheus format. + It also contains Prometheus queries examples (for alerting for example) as well as the JSON definition of a Grafana dashboard ready to be imported into your Grafana instance.
 Retrieving the metrics Using the Appclacks CLI
 The appclacks healthcheck metrics get command returns all metrics for your health checks in Prometheus format.
 Using Prometheus
-You can configure Prometheus to scrape the Appclacks API by adding a new job on the scrape_configs section:
-scrape_configs: - job_name: &amp;#34;appclacks&amp;#34; metrics_path: &amp;#34;/api/v1/metrics/healthchecks&amp;#34; scheme: https basic_auth: username: &amp;#39;&amp;lt;YOUR ORGANIZATION ID&amp;gt;&amp;#39; password: &amp;#39;&amp;lt;YOUR API TOKEN&amp;gt;&amp;#39; static_configs: - targets: - &amp;#34;api.</description>
+You can configure Prometheus to scrape the Appclacks API by adding a new job on the scrape_configs section:</description>
     </item>
     <item>
       <title>Appclacks on your private infrastructure</title>

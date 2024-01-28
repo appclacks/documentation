@@ -6,22 +6,22 @@
     <meta name="generator" content="Hugo 0.121.2">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
-    <title>Metrics and Prometheus integration :: Appclacks documentation</title>
-    <link href="/guides/metrics/index.xml" rel="alternate" type="application/rss+xml" title="Metrics and Prometheus integration :: Appclacks documentation">
+    <title>Metrics, Prometheus and Grafana integration :: Appclacks documentation</title>
+    <link href="/guides/metrics/index.xml" rel="alternate" type="application/rss+xml" title="Metrics, Prometheus and Grafana integration :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1705431064" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1705431064" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1705431064" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1705431064" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1705431064" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1705431064" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1705431064" rel="stylesheet">
-    <link href="/css/nucleus.css?1705431064" rel="stylesheet">
-    <link href="/css/fonts.css?1705431064" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1705431064" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1705431064" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1705431064" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1705431064" rel="stylesheet">
-    <link href="/css/variant.css?1705431064" rel="stylesheet">
-    <link href="/css/print.css?1705431064" rel="stylesheet" media="print">
-    <script src="/js/url.js?1705431064"></script>
-    <script src="/js/variant.js?1705431064"></script>
+    <link href="/css/fontawesome-all.min.css?1706471400" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1706471400" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1706471400" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1706471400" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1706471400" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1706471400" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1706471400" rel="stylesheet">
+    <link href="/css/nucleus.css?1706471400" rel="stylesheet">
+    <link href="/css/fonts.css?1706471400" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1706471400" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1706471400" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1706471400" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1706471400" rel="stylesheet">
+    <link href="/css/variant.css?1706471400" rel="stylesheet">
+    <link href="/css/print.css?1706471400" rel="stylesheet" media="print">
+    <script src="/js/url.js?1706471400"></script>
+    <script src="/js/variant.js?1706471400"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1705431064" defer></script>
+    <script src="/js/jquery.min.js?1706471400" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/guides/metrics/index.html">
     <div id="body" class="default-animation">
@@ -60,7 +60,7 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Appclacks</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/guides/index.html"><span itemprop="name">Guides</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Metrics and Prometheus integration</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Metrics, Prometheus and Grafana integration</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
           <div class="default-animation progress">
@@ -70,6 +70,7 @@
     <li><a href="#retrieving-the-metrics">Retrieving the metrics</a></li>
     <li><a href="#exposed-metrics">Exposed metrics</a></li>
     <li><a href="#useful-prometheus-queries">Useful Prometheus queries</a></li>
+    <li><a href="#grafana-dashboard">Grafana dashboard</a></li>
   </ul>
 </nav>
             </div>
@@ -81,9 +82,10 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="metrics-and-prometheus-integration">Metrics and Prometheus integration</h1>
+<h1 id="metrics-prometheus-and-grafana-integration">Metrics, Prometheus and Grafana integration</h1>
 
-<p>The Appclacks API exposes health checks metrics in the <a href="https://prometheus.io/">Prometheus</a> format.</p>
+<p>The Appclacks API exposes health checks metrics in the <a href="https://prometheus.io/">Prometheus</a> format. +
+It also contains Prometheus queries examples (for alerting for example) as well as the JSON definition of a Grafana dashboard ready to be imported into your Grafana instance.</p>
 <h2 id="retrieving-the-metrics">Retrieving the metrics</h2>
 <p><strong>Using the Appclacks CLI</strong></p>
 <p>The <code>appclacks healthcheck metrics get</code> command returns all metrics for your health checks in Prometheus format.</p>
@@ -138,6 +140,9 @@ We recommend you to alert if health checks fail from several zones during the sa
 <p>Use this query to compute the rate of health check executions for each health check, per zone and status:</p>
 <pre tabindex="0"><code>sum by (name, id, zone, status) (rate(healthcheck_total{}[5m]))
 </code></pre><p>You can also set labels in <code>healthcheck_total{}</code> to filter for example only failed health check (by adding <code>status=&quot;failure&quot;</code> in this case).</p>
+<h2 id="grafana-dashboard">Grafana dashboard</h2>
+<p>We provide the JSON definition of a Grafana dashboard based on Appclacks metrics, ready to be imported into your Grafana dashboard. This dashboard shows information about health checks, like error rate and latency.</p>
+<p>The definition <a href="/grafana/healthcheck-dashboard.json">is available on this link</a></p>
 
             <footer class="footline">
             </footer>
@@ -162,12 +167,12 @@ We recommend you to alert if health checks fail from several zones during the sa
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1705431064" defer></script>
-        <script src="/js/lunr.min.js?1705431064" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1705431064" defer></script>
-        <script src="/js/lunr.multi.min.js?1705431064" defer></script>
-        <script src="/js/lunr.en.min.js?1705431064" defer></script>
-        <script src="/js/search.js?1705431064" defer></script>
+        <script src="/js/auto-complete.js?1706471400" defer></script>
+        <script src="/js/lunr.min.js?1706471400" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1706471400" defer></script>
+        <script src="/js/lunr.multi.min.js?1706471400" defer></script>
+        <script src="/js/lunr.en.min.js?1706471400" defer></script>
+        <script src="/js/search.js?1706471400" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -182,7 +187,7 @@ We recommend you to alert if health checks fail from several zones during the sa
           <li data-nav-id="/guides/authentication/index.html" class="dd-item"><a href="/guides/authentication/index.html">Authentication and API tokens</a></li>
           <li data-nav-id="/guides/terraform/index.html" class="dd-item"><a href="/guides/terraform/index.html">Terraform integration</a></li>
           <li data-nav-id="/guides/kubernetes/index.html" class="dd-item"><a href="/guides/kubernetes/index.html">Kubernetes operator</a></li>
-          <li data-nav-id="/guides/metrics/index.html" class="dd-item active"><a href="/guides/metrics/index.html">Metrics and Prometheus integration</a></li>
+          <li data-nav-id="/guides/metrics/index.html" class="dd-item active"><a href="/guides/metrics/index.html">Metrics, Prometheus and Grafana integration</a></li>
           <li data-nav-id="/guides/private-infrastructure/index.html" class="dd-item"><a href="/guides/private-infrastructure/index.html">Appclacks on your private infrastructure</a></li>
           <li data-nav-id="/guides/account/index.html" class="dd-item"><a href="/guides/account/index.html">Managing your Appclacks account</a></li></ul></li>
         </ul>
@@ -231,9 +236,9 @@ We recommend you to alert if health checks fail from several zones during the sa
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1705431064" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1705431064" defer></script>
-    <script src="/js/featherlight.min.js?1705431064" defer></script>
-    <script src="/js/theme.js?1705431064" defer></script>
+    <script src="/js/clipboard.min.js?1706471400" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1706471400" defer></script>
+    <script src="/js/featherlight.min.js?1706471400" defer></script>
+    <script src="/js/theme.js?1706471400" defer></script>
   </body>
 </html>

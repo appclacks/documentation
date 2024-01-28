@@ -1,9 +1,10 @@
 ---
-title: Metrics and Prometheus integration
+title: Metrics, Prometheus and Grafana integration
 weight: 40
 ---
 
-The Appclacks API exposes health checks metrics in the [Prometheus](https://prometheus.io/) format.
+The Appclacks API exposes health checks metrics in the [Prometheus](https://prometheus.io/) format. +
+It also contains Prometheus queries examples (for alerting for example) as well as the JSON definition of a Grafana dashboard ready to be imported into your Grafana instance.
 
 ## Retrieving the metrics
 
@@ -91,3 +92,9 @@ sum by (name, id, zone, status) (rate(healthcheck_total{}[5m]))
 ```
 
 You can also set labels in `healthcheck_total{}` to filter for example only failed health check (by adding `status="failure"` in this case).
+
+## Grafana dashboard
+
+We provide the JSON definition of a Grafana dashboard based on Appclacks metrics, ready to be imported into your Grafana dashboard. This dashboard shows information about health checks, like error rate and latency.
+
+The definition [is available on this link](/grafana/healthcheck-dashboard.json)

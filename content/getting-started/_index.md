@@ -20,7 +20,7 @@ You should now be able to log in in the [Appclacks user interface](https://api.a
 
 We provide a full-featured [command line interface](https://github.com/appclacks/cli) to interact with the platform.
 
-** MacOS**
+**MacOS**
 
 You can use brew to install the latest release of the Appclacks LI: `brew install appclacks/tap/appclacks`.
 
