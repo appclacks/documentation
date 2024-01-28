@@ -97,4 +97,4 @@ You can also set labels in `healthcheck_total{}` to filter for example only fail
 
 We provide the JSON definition of a Grafana dashboard based on Appclacks metrics, ready to be imported into your Grafana dashboard. This dashboard shows information about health checks, like error rate and latency.
 
-The definition [is available on this link](/grafana/healthcheck-dashboard.json)
+The definition [is available on this link](/grafana/healthcheck-dashboard.json).
