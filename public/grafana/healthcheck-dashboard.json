@@ -36,7 +36,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+        "uid": "${datasource}"
       },
       "description": "Failed health checks rate (5 minutes)",
       "fieldConfig": {
@@ -115,7 +115,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum by (id, name) (rate(healthcheck_total{status=\"failure\"}[5m]))",
@@ -131,7 +131,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+        "uid": "${datasource}"
       },
       "description": "Number of successful health check in the selected interval",
       "fieldConfig": {
@@ -179,7 +179,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(increase(healthcheck_total{status=\"success\"}[$__range]))",
@@ -195,7 +195,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+        "uid": "${datasource}"
       },
       "description": "Number of health checks failures in the selected interval",
       "fieldConfig": {
@@ -247,7 +247,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(increase(healthcheck_total{status=\"failure\"}[$__range]))",
@@ -274,7 +274,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+        "uid": "${datasource}"
       },
       "description": "Health check rate per seconds",
       "fieldConfig": {
@@ -357,7 +357,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(rate(healthcheck_total{name=\"$healthcheck\", status=\"failure\"}[5m]))",
@@ -369,7 +369,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(rate(healthcheck_total{name=\"$healthcheck\", status=\"success\"}[5m]))",
@@ -386,7 +386,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+        "uid": "${datasource}"
       },
       "description": "Number of successful health check in the selected interval",
       "fieldConfig": {
@@ -434,7 +434,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(increase(healthcheck_total{name=\"$healthcheck\", status=\"success\"}[$__range]))",
@@ -450,7 +450,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+        "uid": "${datasource}"
       },
       "description": "Number of health checks failures in the selected interval",
       "fieldConfig": {
@@ -502,7 +502,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(increase(healthcheck_total{name=\"$healthcheck\", status=\"failure\"}[$__range]))",
@@ -518,7 +518,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+        "uid": "${datasource}"
       },
       "description": "Health check execution time quantiles",
       "fieldConfig": {
@@ -601,7 +601,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.99, sum(rate(healthcheck_duration_seconds_bucket{name=\"$healthcheck\"}[5m])) by (le))",
@@ -613,7 +613,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.75, sum(rate(healthcheck_duration_seconds_bucket{name=\"$healthcheck\"}[5m])) by (le))",
@@ -626,7 +626,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.75, sum(rate(healthcheck_duration_seconds_bucket{name=\"$healthcheck\"}[5m])) by (le))",
@@ -643,7 +643,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+        "uid": "${datasource}"
       },
       "description": "Health check execution time Heat map",
       "fieldConfig": {
@@ -715,7 +715,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "e21885cf-7d98-4310-b219-9aa5da9a8bf8"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "sum(rate(healthcheck_duration_seconds_bucket{name=\"$healthcheck\"}[5m])) by (le)",
@@ -789,6 +789,6 @@
   "timezone": "",
   "title": "Health checks",
   "uid": "b99fabbd-1b88-42a4-baba-a9043f35cda0",
-  "version": 10,
+  "version": 11,
   "weekStart": ""
 }
