@@ -80,7 +80,7 @@ We recommend you to alert if health checks fail from several zones during the sa
 This Prometheus query will for example be triggered if the 2 zones are reporting errors on a 5 minutes timeframe (don't hesitate to adjust the timeframe based on your needs and health checks interval):
 
 ```
-count(sum by (id, name, zone) (increase(healthcheck_total{status="failure", name="appclacks-api-failure"}[5m]))) > 1
+count by (id, name) (sum by (id, name, zone) (increase(healthcheck_total{status="failure"}[5m])) > 0) > 1
 ```
 
 **Execution rate rates**
