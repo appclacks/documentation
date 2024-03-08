@@ -78,5 +78,14 @@ Change your password To change your password, execute the appclacks account pass
 It will ask you for your account email, current password, and new password.
 Reset your password Follow the procedure in the reset password page to reset your password.</description>
     </item>
+    <item>
+      <title>Points of presence</title>
+      <link>https://www.doc.appclacks.com/guides/pop/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.doc.appclacks.com/guides/pop/index.html</guid>
+      <description>Health checks are executed from 2 locations. New locations will be added shortly.
+Current locations are:
+France: Scaleway Paris Poland: Scaleway Warsaw </description>
+    </item>
   </channel>
 </rss>

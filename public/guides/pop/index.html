@@ -6,8 +6,8 @@
     <meta name="generator" content="Hugo 0.121.2">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
-    <title>Appclacks on your private infrastructure :: Appclacks documentation</title>
-    <link href="/guides/private-infrastructure/index.xml" rel="alternate" type="application/rss+xml" title="Appclacks on your private infrastructure :: Appclacks documentation">
+    <title>Points of presence :: Appclacks documentation</title>
+    <link href="/guides/pop/index.xml" rel="alternate" type="application/rss+xml" title="Points of presence :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1709938831" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1709938831" rel="stylesheet"></noscript>
     <link href="/css/featherlight.min.css?1709938831" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1709938831" rel="stylesheet"></noscript>
@@ -40,17 +40,17 @@
     </script>
     <script src="/js/jquery.min.js?1709938831" defer></script>
   </head>
-  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/guides/private-infrastructure/index.html">
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/guides/pop/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <a class="nav nav-next" href="/guides/account/index.html" title="Managing your Appclacks account (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+            <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="/guides/metrics/index.html" title="Metrics, Prometheus and Grafana integration (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="/guides/account/index.html" title="Managing your Appclacks account (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -59,7 +59,7 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Appclacks</span></a><meta itemprop="position" content="1"> > </li>
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/guides/index.html"><span itemprop="name">Guides</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Appclacks on your private infrastructure</span><meta itemprop="position" content="3"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Points of presence</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
         </div>
@@ -69,30 +69,14 @@
           <div id="head-tags">
           </div>
           <article class="default">
-<h1 id="appclacks-on-your-private-infrastructure">Appclacks on your private infrastructure</h1>
+<h1 id="points-of-presence">Points of presence</h1>
 
-<p>Cabourotte, the Appclacks prober, is a free software you can host on your private infrastructure.</p>
-<p>It can be retrieved from its <a href="https://github.com/mcorbin/cabourotte/releases">Github repository</a> and its documentation is available on <a href="https://www.cabourotte.appclacks.com/">https://www.cabourotte.appclacks.com/</a>.</p>
-<p>You should configure the <code>discovery</code> section of the Cabourotte <a href="https://www.cabourotte.appclacks.com/installation/configuration/">configuration file</a> to integrate it with Appclacks.
-Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.</p>
-<p>This is a Cabourotte configuration example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">http</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">9013</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">discovery</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">http</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;appclacks&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">60s</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;api.appclacks.com&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">port</span>: <span style="color:#ae81ff">443</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/api/v1/cabourotte/discovery&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">protocol</span>: <span style="color:#e6db74">&#34;https&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">query</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">labels</span>: <span style="color:#e6db74">&#34;env=prod,project=foo&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">headers</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">Authorization</span>: <span style="color:#e6db74">&#34;Basic WU9VUl9PUkdBTklaQVRJT05fSUQ6WU9VUl9UT0tFTg==&#34;</span>
-</span></span></code></pre></div><p>The <code>Authorization</code> header contains the <code>Basic</code> string followed by the string <code>YOUR_ORGANIZATION_ID:YOUR_API_TOKEN</code> encoded in base64.</p>
-<p>The <code>query</code> parameter is optional and can be used to retrieve only health checks having these labels.</p>
+<p>Health checks are executed from 2 locations. New locations will be added shortly.</p>
+<p>Current locations are:</p>
+<ul>
+<li>France: Scaleway Paris</li>
+<li>Poland: Scaleway Warsaw</li>
+</ul>
 
             <footer class="footline">
             </footer>
@@ -138,9 +122,9 @@ Cabourotte will retrieve the health check configurations from Appclacks and run 
           <li data-nav-id="/guides/terraform/index.html" class="dd-item"><a href="/guides/terraform/index.html">Terraform integration</a></li>
           <li data-nav-id="/guides/kubernetes/index.html" class="dd-item"><a href="/guides/kubernetes/index.html">Kubernetes operator</a></li>
           <li data-nav-id="/guides/metrics/index.html" class="dd-item"><a href="/guides/metrics/index.html">Metrics, Prometheus and Grafana integration</a></li>
-          <li data-nav-id="/guides/private-infrastructure/index.html" class="dd-item active"><a href="/guides/private-infrastructure/index.html">Appclacks on your private infrastructure</a></li>
+          <li data-nav-id="/guides/private-infrastructure/index.html" class="dd-item"><a href="/guides/private-infrastructure/index.html">Appclacks on your private infrastructure</a></li>
           <li data-nav-id="/guides/account/index.html" class="dd-item"><a href="/guides/account/index.html">Managing your Appclacks account</a></li>
-          <li data-nav-id="/guides/pop/index.html" class="dd-item"><a href="/guides/pop/index.html">Points of presence</a></li></ul></li>
+          <li data-nav-id="/guides/pop/index.html" class="dd-item active"><a href="/guides/pop/index.html">Points of presence</a></li></ul></li>
         </ul>
         <div id="shortcuts">
           <div class="nav-title">More</div>
