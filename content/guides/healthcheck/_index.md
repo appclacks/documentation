@@ -57,7 +57,7 @@ You can update an existing health check with the `appclacks healthcheck <type> u
 
 ## Health checks results
 
-Each time a health check is executed by the Appclacks cloud platform, its result is stored and available through the Appclacks API.
+Each time a health check is executed by the Appclacks cloud platform, its result is stored and available through the Appclacks API. Health checks results are currently stored for a period of 11 days.
 
 The `appclacks healthcheck result list` command retrieves health checks results. By default, all health check results from the last 5 minutes are retrieved. +
 Health checks results are paginated and only 100 results are returned. The `--page` option can be used to retrieve the next results from the list.
