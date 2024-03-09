@@ -9,3 +9,5 @@ Current locations are:
 
 - France: Scaleway Paris
 - Poland: Scaleway Warsaw
+- USA: Digital Ocean San Francisco
+

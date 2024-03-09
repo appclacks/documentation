@@ -74,10 +74,9 @@ You can easily alert on it by adding a condition at the end (for example `> 3`).
 
 **Detect failed health checks**
 
-Appclacks executes health checks from 2 zones.
-We recommend you to alert if health checks fail from several zones during the same timeframe to avoid false positive.
+We recommend you to alert if health checks fail from several zones during the same timeframe to avoid false positive (see our [points of presence](/guides/pop/)).
 
-This Prometheus query will for example be triggered if the 2 zones are reporting errors on a 5 minutes timeframe (don't hesitate to adjust the timeframe based on your needs and health checks interval):
+This Prometheus query will for example be triggered if at least 2 zones are reporting errors on a 5 minutes timeframe (don't hesitate to adjust the timeframe based on your needs and health checks interval):
 
 ```
 count by (id, name) (sum by (id, name, zone) (increase(healthcheck_total{status="failure"}[5m])) > 0) > 1
