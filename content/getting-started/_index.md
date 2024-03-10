@@ -71,8 +71,8 @@ Retrieve health checks results executed by Appclacks by launching `appclacks hea
 appclacks healthcheck result list --healthcheck-id d9b17d26-a4cd-47f0-86c0-6cf02069a9dc
 ID                                    Created At                     Success  Duration (ms)  Summary                                    Message  Healthcheck ID                        Labels
 --                                    ----------                     -------  -------------  -------                                    -------  --------------                        ------
-f4a3f05f-4d89-415b-b189-c42e467d9f06  2024-01-10 21:39:56 +0000 UTC  true     5              HTTP healthcheck on api.appclacks.com:443  success  d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  {"healthcheck_name":"http-check-example","zone":"fr-par-1"}
-d32c246c-5ac8-473e-ac9a-1b100e4a6457  2024-01-10 21:39:56 +0000 UTC  true     37             HTTP healthcheck on api.appclacks.com:443  success  d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  {"healthcheck_name":"http-check-example","zone":"pl-waw-1"}
+f4a3f05f-4d89-415b-b189-c42e467d9f06  2024-01-10 21:39:56 +0000 UTC  true     5              HTTP healthcheck on api.appclacks.com:443  success  d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  {"healthcheck_name":"http-check-example","zone":"eu-west"}
+d32c246c-5ac8-473e-ac9a-1b100e4a6457  2024-01-10 21:39:56 +0000 UTC  true     37             HTTP healthcheck on api.appclacks.com:443  success  d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  {"healthcheck_name":"http-check-example","zone":"eu-east"}
 ```
 
 Appclacks commands also support JSON outputs by passing the `-o json` flag.

@@ -85,7 +85,7 @@ Reset your password Follow the procedure in the reset password page to reset you
       <guid>https://www.doc.appclacks.com/guides/pop/index.html</guid>
       <description>Health checks are executed from 2 locations. New locations will be added shortly.
 Current locations are:
-France: Scaleway Paris Poland: Scaleway Warsaw USA: Digital Ocean San Francisco </description>
+eu-west: France, Scaleway Paris eu-east: Poland, Scaleway Warsaw us-west: USA, Digital Ocean San Francisco </description>
     </item>
   </channel>
 </rss>
