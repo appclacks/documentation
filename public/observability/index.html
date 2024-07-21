@@ -6,8 +6,8 @@
     <meta name="generator" content="Hugo 0.121.2">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
-    <title>Tags :: Appclacks documentation</title>
-    <link href="/tags/index.xml" rel="alternate" type="application/rss+xml" title="Tags :: Appclacks documentation">
+    <title>Observability :: Appclacks documentation</title>
+    <link href="/observability/index.xml" rel="alternate" type="application/rss+xml" title="Observability :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet"></noscript>
     <link href="/css/featherlight.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721573121" rel="stylesheet"></noscript>
@@ -40,17 +40,17 @@
     </script>
     <script src="/js/jquery.min.js?1721573121" defer></script>
   </head>
-  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/tags/index.html">
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/observability/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+            <a class="nav nav-next" href="/tooling/index.html" title="Tooling (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="/index.html" title="Appclacks (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="/pushgateway/cli/index.html" title="Managing metrics using the Appclacks CLI (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -58,7 +58,7 @@
             </span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Appclacks</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Tags</span><meta itemprop="position" content="2"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Observability</span><meta itemprop="position" content="2"></li>
             </ol>
           </div>
         </div>
@@ -67,14 +67,22 @@
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <article>
-<h1 id="tags">Tags</h1>
+          <article class="default">
+<h1 id="observability">Observability</h1>
+
+<p>The Appclacks API exposes health checks metrics in the <a href="https://prometheus.io/">Prometheus</a> format. +
+It also contains Prometheus queries examples (for alerting for example) as well as the JSON definition of a Grafana dashboard ready to be imported into your Grafana instance.</p>
+<p>Appclacks exposes two metrics endpoints:</p>
 <ul>
+<li><code>/metrics</code>: metrics about the Appclacks server itself (Go routine, HTTP-related metrics&hellip;)</li>
+<li><code>/pushgateway/metrics</code>: metrics created using the Appclacks push gateway.*</li>
 </ul>
+<p>Basic authentication can be configured for these metrics endpoints using the <a href="/getting-started/#configuration-file">configuration file</a>, in tge <code>http.metrics</code> yaml map.</p>
 
             <footer class="footline">
             </footer>
-          </article>        </div>
+          </article>
+        </div>
       </main>
     </div>
     <aside id="sidebar" class="default-animation" dir="ltr">
@@ -116,7 +124,7 @@
           <li data-nav-id="/healthcheck/kubernetes/index.html" class="dd-item"><a href="/healthcheck/kubernetes/index.html">Kubernetes operator</a></li></ul></li>
           <li data-nav-id="/pushgateway/index.html" class="dd-item alwaysopen"><a href="/pushgateway/index.html">Push gateway</a><ul id="subsections-17147483427d6fa09d6b6bec5b0250ce">
           <li data-nav-id="/pushgateway/cli/index.html" class="dd-item"><a href="/pushgateway/cli/index.html">Managing metrics using the Appclacks CLI</a></li></ul></li>
-          <li data-nav-id="/observability/index.html" class="dd-item"><a href="/observability/index.html">Observability</a></li>
+          <li data-nav-id="/observability/index.html" class="dd-item active"><a href="/observability/index.html">Observability</a></li>
           <li data-nav-id="/tooling/index.html" class="dd-item"><a href="/tooling/index.html">Tooling</a></li>
         </ul>
         <div id="shortcuts">

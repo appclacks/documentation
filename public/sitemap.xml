@@ -4,34 +4,34 @@
     <loc>https://www.doc.appclacks.com/getting-started/index.html</loc>
   </url>
   <url>
-    <loc>https://www.doc.appclacks.com/guides/healthcheck/index.html</loc>
+    <loc>https://www.doc.appclacks.com/healthcheck/index.html</loc>
   </url>
   <url>
-    <loc>https://www.doc.appclacks.com/guides/index.html</loc>
+    <loc>https://www.doc.appclacks.com/healthcheck/cli/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.doc.appclacks.com/pushgateway/cli/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.doc.appclacks.com/pushgateway/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.doc.appclacks.com/healthcheck/cabourotte/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.doc.appclacks.com/observability/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.doc.appclacks.com/healthcheck/terraform/index.html</loc>
+  </url>
+  <url>
+    <loc>https://www.doc.appclacks.com/healthcheck/kubernetes/index.html</loc>
   </url>
   <url>
     <loc>https://www.doc.appclacks.com/index.html</loc>
   </url>
   <url>
-    <loc>https://www.doc.appclacks.com/guides/authentication/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.doc.appclacks.com/guides/terraform/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.doc.appclacks.com/guides/kubernetes/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.doc.appclacks.com/guides/metrics/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.doc.appclacks.com/guides/private-infrastructure/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.doc.appclacks.com/guides/account/index.html</loc>
-  </url>
-  <url>
-    <loc>https://www.doc.appclacks.com/guides/pop/index.html</loc>
+    <loc>https://www.doc.appclacks.com/tooling/index.html</loc>
   </url>
   <url>
     <loc>https://www.doc.appclacks.com/categories/index.html</loc>

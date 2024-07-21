@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Health checks on Appclacks documentation</title>
+    <link>https://www.doc.appclacks.com/healthcheck/index.html</link>
+    <description>Recent content in Health checks on Appclacks documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://www.doc.appclacks.com/healthcheck/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing health checks using the Appclacks CLI</title>
+      <link>https://www.doc.appclacks.com/healthcheck/cli/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.doc.appclacks.com/healthcheck/cli/index.html</guid>
+      <description>The Appclacks CLI can be used to manage health checks.
+All commands support an --output option to change its output format (default to table, json is also supported).
+Health check types Appclacks supports 5 healthchecks types (detailed options for each type are described at the end of this page):
+HTTP(s): An HTTP request will be executed on the target. You can configure a lot of options about the health check request (method, path, headers, protocol, TLS configuration, body&amp;hellip;) or the expected response (status code, body).</description>
+    </item>
+    <item>
+      <title>Running Cabourotte to execute the health checks</title>
+      <link>https://www.doc.appclacks.com/healthcheck/cabourotte/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.doc.appclacks.com/healthcheck/cabourotte/index.html</guid>
+      <description>Once health checks are configured in the Appclacks server, you need to run Cabourotte to execute them.
+It can be retrieved from its Github repository and its documentation is available on [https://www.cabourotte.appclacks.com/](on a dedicated website).
+You should configure the discovery section of the Cabourotte configuration file to integrate it with your Appclacks server. Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.
+This is a Cabourotte configuration example:</description>
+    </item>
+    <item>
+      <title>Terraform integration</title>
+      <link>https://www.doc.appclacks.com/healthcheck/terraform/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.doc.appclacks.com/healthcheck/terraform/index.html</guid>
+      <description>You can manage your health checks using the Appclacks Terraform provider. The source code of the provider is available on Github.
+Examples are also available in the provider Github repository.
+Configuration The standard Appclacks environment variables are understood by Terraform.
+Getting started More examples are available in the Terraform provider documentation
+terraform { required_providers { appclacks = { source = &amp;#34;appclacks/appclacks&amp;#34; } } } # You can also use environment variables to configure the provider provider &amp;#34;appclacks&amp;#34; { api_endpoint = &amp;#34;&amp;#34; username = &amp;#34;&amp;#34; password = &amp;#34;&amp;#34; tls_key = &amp;#34;&amp;#34; tls_cert = &amp;#34;&amp;#34; tls_cacert = &amp;#34;&amp;#34; insecure = false } resource &amp;#34;appclacks_healthcheck_http&amp;#34; &amp;#34;test_http&amp;#34; { name = &amp;#34;test-http&amp;#34; interval = &amp;#34;30s&amp;#34; timeout = &amp;#34;5s&amp;#34; description = &amp;#34;example http health check&amp;#34; labels = { &amp;#34;env&amp;#34;: &amp;#34;prod&amp;#34; } target = &amp;#34;api.</description>
+    </item>
+    <item>
+      <title>Kubernetes operator</title>
+      <link>https://www.doc.appclacks.com/healthcheck/kubernetes/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.doc.appclacks.com/healthcheck/kubernetes/index.html</guid>
+      <description>We provide a Kubernetes operator that allows you to configure health checks on Appclacks using Kubernetes Custom Resources Definitions (CRD).
+The operator source code is available on Github. CRD examples are available in the config/samples directory.
+Getting started You can install the operator on your Kubernetes cluster by following this documentation. We plan to provide an Helm chart in a near future to deploy it.
+Creating the required CRDs
+All CRD files present in this directory on Github should be applied to your cluster.</description>
+    </item>
+  </channel>
+</rss>

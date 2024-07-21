@@ -6,8 +6,8 @@
     <meta name="generator" content="Hugo 0.121.2">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
-    <title>Tags :: Appclacks documentation</title>
-    <link href="/tags/index.xml" rel="alternate" type="application/rss+xml" title="Tags :: Appclacks documentation">
+    <title>Managing metrics using the Appclacks CLI :: Appclacks documentation</title>
+    <link href="/pushgateway/cli/index.xml" rel="alternate" type="application/rss+xml" title="Managing metrics using the Appclacks CLI :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet"></noscript>
     <link href="/css/featherlight.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721573121" rel="stylesheet"></noscript>
@@ -40,26 +40,39 @@
     </script>
     <script src="/js/jquery.min.js?1721573121" defer></script>
   </head>
-  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/tags/index.html">
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/pushgateway/cli/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+            <a class="nav nav-next" href="/observability/index.html" title="Observability (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="/index.html" title="Appclacks (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="/pushgateway/index.html" title="Push gateway (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Appclacks</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Tags</span><meta itemprop="position" content="2"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/pushgateway/index.html"><span itemprop="name">Push gateway</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Managing metrics using the Appclacks CLI</span><meta itemprop="position" content="3"></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper" dir="ltr">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#creating-your-first-metrics">Creating your first metrics</a></li>
+    <li><a href="#metrics-ttl">Metrics TTL</a></li>
+    <li><a href="#managing-metrics">Managing metrics</a></li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -67,14 +80,35 @@
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <article>
-<h1 id="tags">Tags</h1>
+          <article class="default">
+<h1 id="managing-metrics-using-the-appclacks-cli">Managing metrics using the Appclacks CLI</h1>
+
+<p>The <a href="/getting-started/#installing-the-appclacks-cli">Appclacks CLI</a> can be used to manage metrics.</p>
+<p>All commands support an <code>--output</code> option to change its output format (default to <code>table</code>, <code>json</code> is also supported).</p>
+<h2 id="creating-your-first-metrics">Creating your first metrics</h2>
+<p>Let&rsquo;s create several metrics using the Appclacks CLI:</p>
+<pre tabindex="0"><code>appclacks pushgateway create --name example_1 --value 10
+appclacks pushgateway create --name example_2 --value 20 --labels environment=production --labels application=foo --description &#34;my metric description&#34; --type gauge
+</code></pre><p>Appclacks will expose these metrics on the <code>/pushgateway/metrics</code> endpoint (see the <a href="/observability/">Observability section</a>:</p>
+<pre tabindex="0"><code>example_1{} 10
+# HELP example_2 my metric description
+# TYPE example_2 gauge
+example_2{application=&#34;foo&#34;, environment=&#34;production&#34;} 20
+</code></pre><h2 id="metrics-ttl">Metrics TTL</h2>
+<p>By default, metrics in the push gateway will never expire.</p>
+<p>You can configure a TTL on the metrics by specifying the <code>ttl</code> to the command, for example for a 2 minutes TTL:</p>
+<pre tabindex="0"><code>appclacks pushgateway create --name example_3 --value 20 --labels environment=production --labels application=foo --description &#34;my metric description&#34; --type gauge --ttl 2m
+</code></pre><h2 id="managing-metrics">Managing metrics</h2>
 <ul>
+<li>You can list the metrics with <code>appclacks pushgateway list</code></li>
+<li>You can delete a metric by ID by using <code>appclacks pushgateway delete</code></li>
+<li>You can delete <strong>all</strong> metrics using <code>appclacks pushgateway delete-all</code></li>
 </ul>
 
             <footer class="footline">
             </footer>
-          </article>        </div>
+          </article>
+        </div>
       </main>
     </div>
     <aside id="sidebar" class="default-animation" dir="ltr">
@@ -114,8 +148,8 @@
           <li data-nav-id="/healthcheck/cabourotte/index.html" class="dd-item"><a href="/healthcheck/cabourotte/index.html">Running Cabourotte to execute the health checks</a></li>
           <li data-nav-id="/healthcheck/terraform/index.html" class="dd-item"><a href="/healthcheck/terraform/index.html">Terraform integration</a></li>
           <li data-nav-id="/healthcheck/kubernetes/index.html" class="dd-item"><a href="/healthcheck/kubernetes/index.html">Kubernetes operator</a></li></ul></li>
-          <li data-nav-id="/pushgateway/index.html" class="dd-item alwaysopen"><a href="/pushgateway/index.html">Push gateway</a><ul id="subsections-17147483427d6fa09d6b6bec5b0250ce">
-          <li data-nav-id="/pushgateway/cli/index.html" class="dd-item"><a href="/pushgateway/cli/index.html">Managing metrics using the Appclacks CLI</a></li></ul></li>
+          <li data-nav-id="/pushgateway/index.html" class="dd-item parent alwaysopen"><a href="/pushgateway/index.html">Push gateway</a><ul id="subsections-17147483427d6fa09d6b6bec5b0250ce">
+          <li data-nav-id="/pushgateway/cli/index.html" class="dd-item active"><a href="/pushgateway/cli/index.html">Managing metrics using the Appclacks CLI</a></li></ul></li>
           <li data-nav-id="/observability/index.html" class="dd-item"><a href="/observability/index.html">Observability</a></li>
           <li data-nav-id="/tooling/index.html" class="dd-item"><a href="/tooling/index.html">Tooling</a></li>
         </ul>

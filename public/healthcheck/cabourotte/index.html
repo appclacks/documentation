@@ -6,8 +6,8 @@
     <meta name="generator" content="Hugo 0.121.2">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
-    <title>Tags :: Appclacks documentation</title>
-    <link href="/tags/index.xml" rel="alternate" type="application/rss+xml" title="Tags :: Appclacks documentation">
+    <title>Running Cabourotte to execute the health checks :: Appclacks documentation</title>
+    <link href="/healthcheck/cabourotte/index.xml" rel="alternate" type="application/rss+xml" title="Running Cabourotte to execute the health checks :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet"></noscript>
     <link href="/css/featherlight.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721573121" rel="stylesheet"></noscript>
@@ -40,17 +40,17 @@
     </script>
     <script src="/js/jquery.min.js?1721573121" defer></script>
   </head>
-  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/tags/index.html">
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/healthcheck/cabourotte/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+            <a class="nav nav-next" href="/healthcheck/terraform/index.html" title="Terraform integration (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="/index.html" title="Appclacks (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="/healthcheck/cli/index.html" title="Managing health checks using the Appclacks CLI (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -58,7 +58,8 @@
             </span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Appclacks</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Tags</span><meta itemprop="position" content="2"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/healthcheck/index.html"><span itemprop="name">Health checks</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Running Cabourotte to execute the health checks</span><meta itemprop="position" content="3"></li>
             </ol>
           </div>
         </div>
@@ -67,14 +68,43 @@
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <article>
-<h1 id="tags">Tags</h1>
-<ul>
-</ul>
+          <article class="default">
+<h1 id="running-cabourotte-to-execute-the-health-checks">Running Cabourotte to execute the health checks</h1>
+
+<p>Once health checks are configured in the Appclacks server, you need to run Cabourotte to execute them.</p>
+<p>It can be retrieved from its <a href="https://github.com/mcorbin/cabourotte/releases">Github repository</a> and its documentation is available on [https://www.cabourotte.appclacks.com/](on a dedicated website).</p>
+<p>You should configure the <code>discovery</code> section of the Cabourotte <a href="https://www.cabourotte.appclacks.com/installation/configuration/">configuration file</a> to integrate it with your Appclacks server.
+Cabourotte will retrieve the health check configurations from Appclacks and run the health checks.</p>
+<p>This is a Cabourotte configuration example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">port</span>: <span style="color:#ae81ff">9013</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">discovery</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;appclacks&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">60s</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;api.appclacks.com&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">port</span>: <span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#e6db74">&#34;/api/v1/cabourotte/discovery&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">protocol</span>: <span style="color:#e6db74">&#34;https&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">query</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">labels</span>: <span style="color:#e6db74">&#34;env=prod,project=foo&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">headers</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">Authorization</span>: <span style="color:#e6db74">&#34;Basic aGVsbG86d29ybGQ=&#34;</span>
+</span></span></code></pre></div><p>The optional <code>Authorization</code> header contains the <code>Basic</code> string followed the (optional) username and password that you configured on the server, in base64</p>
+<p>The <code>query</code> parameter is optional and can be used to retrieve only health checks having these labels. You can for example use this feature to dynamically configure several Cabourotte instances dynamically.</p>
+
+<div class="box notices cstyle blue">
+  <div class="box-label"></div>
+  <div class="box-content">
+<p>Only health checks with <code>enabled</code> set to true will be executed by Cabourotte.</p>
+    </div>
+</div>
 
             <footer class="footline">
             </footer>
-          </article>        </div>
+          </article>
+        </div>
       </main>
     </div>
     <aside id="sidebar" class="default-animation" dir="ltr">
@@ -109,9 +139,9 @@
       <div id="content-wrapper" class="highlightable">
         <ul class="topics">
           <li data-nav-id="/getting-started/index.html" class="dd-item"><a href="/getting-started/index.html">Getting Started</a></li>
-          <li data-nav-id="/healthcheck/index.html" class="dd-item alwaysopen"><a href="/healthcheck/index.html">Health checks</a><ul id="subsections-350e91393d8d560a62f646e8a7f6ab85">
+          <li data-nav-id="/healthcheck/index.html" class="dd-item parent alwaysopen"><a href="/healthcheck/index.html">Health checks</a><ul id="subsections-350e91393d8d560a62f646e8a7f6ab85">
           <li data-nav-id="/healthcheck/cli/index.html" class="dd-item"><a href="/healthcheck/cli/index.html">Managing health checks using the Appclacks CLI</a></li>
-          <li data-nav-id="/healthcheck/cabourotte/index.html" class="dd-item"><a href="/healthcheck/cabourotte/index.html">Running Cabourotte to execute the health checks</a></li>
+          <li data-nav-id="/healthcheck/cabourotte/index.html" class="dd-item active"><a href="/healthcheck/cabourotte/index.html">Running Cabourotte to execute the health checks</a></li>
           <li data-nav-id="/healthcheck/terraform/index.html" class="dd-item"><a href="/healthcheck/terraform/index.html">Terraform integration</a></li>
           <li data-nav-id="/healthcheck/kubernetes/index.html" class="dd-item"><a href="/healthcheck/kubernetes/index.html">Kubernetes operator</a></li></ul></li>
           <li data-nav-id="/pushgateway/index.html" class="dd-item alwaysopen"><a href="/pushgateway/index.html">Push gateway</a><ul id="subsections-17147483427d6fa09d6b6bec5b0250ce">

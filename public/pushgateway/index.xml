@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Push gateway on Appclacks documentation</title>
+    <link>https://www.doc.appclacks.com/pushgateway/index.html</link>
+    <description>Recent content in Push gateway on Appclacks documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://www.doc.appclacks.com/pushgateway/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Managing metrics using the Appclacks CLI</title>
+      <link>https://www.doc.appclacks.com/pushgateway/cli/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.doc.appclacks.com/pushgateway/cli/index.html</guid>
+      <description>The Appclacks CLI can be used to manage metrics.
+All commands support an --output option to change its output format (default to table, json is also supported).
+Creating your first metrics Let&amp;rsquo;s create several metrics using the Appclacks CLI:
+appclacks pushgateway create --name example_1 --value 10 appclacks pushgateway create --name example_2 --value 20 --labels environment=production --labels application=foo --description &amp;#34;my metric description&amp;#34; --type gauge Appclacks will expose these metrics on the /pushgateway/metrics endpoint (see the Observability section:</description>
+    </item>
+  </channel>
+</rss>

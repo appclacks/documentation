@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.121.2">
+    <meta name="generator" content="Relearn 5.7.0+tip">
+    <meta name="description" content="">
+    <title>Managing health checks using the Appclacks CLI :: Appclacks documentation</title>
+    <link href="/healthcheck/cli/index.xml" rel="alternate" type="application/rss+xml" title="Managing health checks using the Appclacks CLI :: Appclacks documentation">
+    <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
+    <link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721573121" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1721573121" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1721573121" rel="stylesheet">
+    <link href="/css/nucleus.css?1721573121" rel="stylesheet">
+    <link href="/css/fonts.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1721573121" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1721573121" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1721573121" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1721573121" rel="stylesheet">
+    <link href="/css/variant.css?1721573121" rel="stylesheet">
+    <link href="/css/print.css?1721573121" rel="stylesheet" media="print">
+    <script src="/js/url.js?1721573121"></script>
+    <script src="/js/variant.js?1721573121"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      window.T_No_results_found = 'No results found for \u0022{0}\u0022';
+      window.T_N_results_found = '{1} results found for \u0022{0}\u0022';
+      // some further base stuff
+      var baseUriFull='https:\/\/www.doc.appclacks.com/';
+      window.variants && variants.init( [ 'appclacks' ] );
+    </script>
+    <script src="/js/jquery.min.js?1721573121" defer></script>
+  </head>
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/healthcheck/cli/index.html">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable" dir="ltr">
+        <div>
+          <div class="navigation">
+            <a class="nav nav-next" href="/healthcheck/cabourotte/index.html" title="Running Cabourotte to execute the health checks (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+            <a class="nav nav-prev" href="/healthcheck/index.html" title="Health checks (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Appclacks</span></a><meta itemprop="position" content="1"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/healthcheck/index.html"><span itemprop="name">Health checks</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Managing health checks using the Appclacks CLI</span><meta itemprop="position" content="3"></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper" dir="ltr">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#health-check-types">Health check types</a></li>
+    <li><a href="#creating-an-health-check">Creating an health check</a></li>
+    <li><a href="#managing-health-checks">Managing health checks</a></li>
+    <li><a href="#health-checks-options-reference">Health checks options reference</a>
+      <ul>
+        <li><a href="#common-fields">Common fields</a></li>
+        <li><a href="#http">HTTP</a></li>
+        <li><a href="#tcp">TCP</a></li>
+        <li><a href="#tls">TLS</a></li>
+        <li><a href="#dns">DNS</a></li>
+        <li><a href="#command">Command</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <article class="default">
+<h1 id="managing-health-checks-using-the-appclacks-cli">Managing health checks using the Appclacks CLI</h1>
+
+<p>The <a href="/getting-started/#installing-the-appclacks-cli">Appclacks CLI</a> can be used to manage health checks.</p>
+<p>All commands support an <code>--output</code> option to change its output format (default to <code>table</code>, <code>json</code> is also supported).</p>
+<h2 id="health-check-types">Health check types</h2>
+<p>Appclacks supports 5 healthchecks types (detailed options for each type are described <a href="/healthcheck/cli/#health-checks-options-reference">at the end of this page</a>):</p>
+<ul>
+<li><code>HTTP(s)</code>: An HTTP request will be executed on the target. You can configure a lot of options about the health check request (method, path, headers, protocol, TLS configuration, body&hellip;) or the expected response (status code, body).</li>
+<li><code>TCP</code>: A TCP connection will be initiated with the target. You can also use this kind of health check to check that a TCP target is <em>not</em> responding, to be sure that a component is not exposed on the internet for example.</li>
+<li><code>TLS</code>: A TLS connection will be initiated by the target. If you host the prober yourself you can even configure which certificates to use for the connection.</li>
+<li><code>DNS</code>: A DNS resolution will be executed on a domain. You can use it to see if the resolution is working and to check the IP returned by it.</li>
+<li><code>Command</code>: An arbitrary shell command (with optional arguments) will be executed. The health check is considered failed if the command fails to execute.</li>
+</ul>
+<h2 id="creating-an-health-check">Creating an health check</h2>
+<p>Use the <code>appclacks healthcheck &lt;type&gt; create</code> command to create a health check, where <code>&lt;type&gt;</code> is the health check type (<code>http</code>, <code>tcp</code>, <code>tls</code>, <code>dns</code>, <code>command</code>).</p>
+<p>In this example, we create an HTTP health check targeting <code>appclacks.com</code>. You can see in the response (in json due to the <code>--output</code> option) the default values for HTTP health checks.</p>
+<pre tabindex="0"><code>$ appclacks healthcheck http create --name &#34;hello&#34; --target &#34;appclacks.com&#34; --output json
+
+{&#34;id&#34;:&#34;caaa5899-26a7-4a91-a77a-86adc849d23e&#34;,&#34;name&#34;:&#34;hello&#34;,&#34;type&#34;:&#34;http&#34;,&#34;timeout&#34;:&#34;5s&#34;,&#34;interval&#34;:&#34;60s&#34;,&#34;created-at&#34;:&#34;2022-12-04T21:47:03.592347391Z&#34;,&#34;enabled&#34;:true,&#34;Definition&#34;:{&#34;valid-status&#34;:[200],&#34;target&#34;:&#34;appclacks.com&#34;,&#34;method&#34;:&#34;GET&#34;,&#34;port&#34;:443,&#34;redirect&#34;:true,&#34;protocol&#34;:&#34;https&#34;}}
+</code></pre><p>Use the <code>--help</code> command to get details about health checks options, for example <code>appclacks healthcheck http create --help</code>. The available options are also explained <a href="/guides/healthcheck/#health-checks-options-reference">at the end of this page</a> for each health check type.</p>
+<h2 id="managing-health-checks">Managing health checks</h2>
+<p>The <code>appclacks healthcheck list</code> and <code>appclacks healthcheck get --id &lt;healthcheck_id&gt;</code> (<code>get</code> also supports <code>--name &lt;healthcheck_name&gt;</code>) commands can be used to retrieve health checks information.</p>
+<p>You can update an existing health check with the <code>appclacks healthcheck &lt;type&gt; update</code> commands. All health checks fields which you want to configure should be specified, the update is a replace.</p>
+<p>You can delete an health check by ID by running <code>appclacks healthcheck delete --id &lt;healthcheck_id&gt;</code>.</p>
+<h2 id="health-checks-options-reference">Health checks options reference</h2>
+<h3 id="common-fields">Common fields</h3>
+<p>These fields are available to all health checks:</p>
+<ul>
+<li><code>name</code>: the health check name. It should be unique.</li>
+<li><code>description</code>: an optional health check description (optional)</li>
+<li><code>labels</code>: key/value pairs of strings, useful to add metadata to health checks (optional, example <code>environment=production</code>)</li>
+<li><code>interval</code>: the health check execution interval (example: <code>30s</code> for 30 seconds, <code>1m</code> for one minute&hellip;).</li>
+<li><code>timeout</code>: the health check execution timeout (example: <code>3s</code> for 3 seconds)</li>
+<li><code>enabled</code>: Enable or not the health check. The <a href="/healthcheck/cabourotte">Cabourotte discovery endpoint</a> will only return enabled health checks.</li>
+</ul>
+<h3 id="http">HTTP</h3>
+<ul>
+<li><code>valid-status</code>: a list of HTTP status code to consider the health check successful (example: <code>200</code>, <code>201</code>).</li>
+<li><code>target</code>: the URL or IP address to target (example: <code>api.appclacks.com</code>).</li>
+<li><code>method</code>: the HTTP method to use (example: <code>GET</code>).</li>
+<li><code>port</code>: the port to target (example: <code>443</code>).</li>
+<li><code>protocol</code>: the protocol to use (<code>http</code> or <code>https</code>)</li>
+<li><code>host</code>: override the HTTP Host header (optional, example: <code>api.appclacks.com</code>).</li>
+<li><code>redirect</code>: follow redirect (optional, default <code>false</code>).</li>
+<li><code>query</code>: HTTP query parameters to pass to the request (optional).</li>
+<li><code>body</code>: HTTP query to pass to the request (optional).</li>
+<li><code>body-regexp</code>: A list of regular expressions on which the HTTP response body will be matched. The health check is considered failed if the response body does not have the regular expressions (optional).</li>
+<li><code>headers</code>: extra HTTP headers to pass to the request (optional).</li>
+<li><code>key</code>: A path to a file containing a certificate private key for mTLS (optional).</li>
+<li><code>cert</code>: A path to a file containing a certificate public key for mTLS (optional).</li>
+<li><code>cacert</code>: A path to a file containing certificates authorities to trust (optional).</li>
+<li><code>server-name</code>: the server name identifier to use (optional).</li>
+<li><code>insecure</code>: enable insecure TLS (default to <code>false</code>)</li>
+</ul>
+<h3 id="tcp">TCP</h3>
+<ul>
+<li><code>target</code>: the URL or IP address to target (example: <code>api.appclacks.com</code>).</li>
+<li><code>port</code>: the port to target (example: <code>443</code>).</li>
+<li><code>should-fail</code>: if set to true, the health check will be considered successful if the TCP connection fails (default to <code>false</code>).</li>
+</ul>
+<h3 id="tls">TLS</h3>
+<ul>
+<li><code>target</code>: the URL or IP address to target (example: <code>api.appclacks.com</code>).</li>
+<li><code>port</code>: the port to target (example: <code>443</code>).</li>
+<li><code>key</code>: A path to a file containing a certificate private key for mTLS (optional).</li>
+<li><code>cert</code>: A path to a file containing a certificate public key for mTLS (optional).</li>
+<li><code>cacert</code>: A path to a file containing certificates authorities to trust (optional).</li>
+<li><code>server-name</code>: the server name identifier to use (optional).</li>
+<li><code>insecure</code>: enable insecure TLS (default to <code>false</code>)</li>
+<li><code>expiration-delay</code>: duration before alerting for the target certificat expiration date (optional, for example an expiration delay of <code>48h</code> would make the health check fails if the certificate expires in less than 48 hours).</li>
+</ul>
+<h3 id="dns">DNS</h3>
+<ul>
+<li><code>domain</code>: the domain to target (example: <code>google.com</code>)</li>
+<li><code>expected-ips</code>: a list of IP ddresses (v4 or v6) that should be present in the DNS answer to consider the health checks successful (optional)</li>
+</ul>
+<h3 id="command">Command</h3>
+<ul>
+<li><code>command</code>: the command to execute (example: <code>ls</code>)</li>
+<li><code>arguments</code>: the list of arguments to pass th the command (example: <code>-l</code>).</li>
+</ul>
+
+            <footer class="footline">
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation" dir="ltr">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<a id="logo" href="https://www.doc.appclacks.com">
+  <img src="/img/appclacks.png" alt="Appclacks logo"/>
+</a>
+
+        </div>
+        <div class="searchbox default-animation">
+          <i class="fas fa-search" title="Search (CTRL+ALT+f)"></i>
+          <label class="a11y-only" for="search-by">Search</label>
+          <input data-search-input id="search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1721573121" defer></script>
+        <script src="/js/lunr.min.js?1721573121" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1721573121" defer></script>
+        <script src="/js/lunr.multi.min.js?1721573121" defer></script>
+        <script src="/js/lunr.en.min.js?1721573121" defer></script>
+        <script src="/js/search.js?1721573121" defer></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fas fa-home"></i> Home</a></li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/getting-started/index.html" class="dd-item"><a href="/getting-started/index.html">Getting Started</a></li>
+          <li data-nav-id="/healthcheck/index.html" class="dd-item parent alwaysopen"><a href="/healthcheck/index.html">Health checks</a><ul id="subsections-350e91393d8d560a62f646e8a7f6ab85">
+          <li data-nav-id="/healthcheck/cli/index.html" class="dd-item active"><a href="/healthcheck/cli/index.html">Managing health checks using the Appclacks CLI</a></li>
+          <li data-nav-id="/healthcheck/cabourotte/index.html" class="dd-item"><a href="/healthcheck/cabourotte/index.html">Running Cabourotte to execute the health checks</a></li>
+          <li data-nav-id="/healthcheck/terraform/index.html" class="dd-item"><a href="/healthcheck/terraform/index.html">Terraform integration</a></li>
+          <li data-nav-id="/healthcheck/kubernetes/index.html" class="dd-item"><a href="/healthcheck/kubernetes/index.html">Kubernetes operator</a></li></ul></li>
+          <li data-nav-id="/pushgateway/index.html" class="dd-item alwaysopen"><a href="/pushgateway/index.html">Push gateway</a><ul id="subsections-17147483427d6fa09d6b6bec5b0250ce">
+          <li data-nav-id="/pushgateway/cli/index.html" class="dd-item"><a href="/pushgateway/cli/index.html">Managing metrics using the Appclacks CLI</a></li></ul></li>
+          <li data-nav-id="/observability/index.html" class="dd-item"><a href="/observability/index.html">Observability</a></li>
+          <li data-nav-id="/tooling/index.html" class="dd-item"><a href="/tooling/index.html">Tooling</a></li>
+        </ul>
+        <div id="shortcuts">
+          <div class="nav-title">More</div>
+          <ul>
+            <li><a class="padding" href="https://github.com/appclacks/documentation"><i class='fab fa-fw fa-github'></i> GitHub repo</a></li>
+            <li><a class="padding" href="https://appclacks.com"><i class='fab fa-fw fa-camera'></i> Appclacks home page</a></li>
+          </ul>
+        </div>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <div class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <label class="a11y-only" for="select-language">Language</label>
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </div>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <div class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <label class="a11y-only" for="select-variant">Theme</label>
+                  <select id="select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                    <option id="appclacks" value="appclacks" selected>Appclacks</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </div>
+              <script>window.variants && variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><button class="padding" onclick="clearHistory();"><i class="fas fa-history fa-fw"></i> Clear History</button></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1721573121" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1721573121" defer></script>
+    <script src="/js/featherlight.min.js?1721573121" defer></script>
+    <script src="/js/theme.js?1721573121" defer></script>
+  </body>
+</html>

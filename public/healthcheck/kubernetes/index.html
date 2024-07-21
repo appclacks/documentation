@@ -6,8 +6,8 @@
     <meta name="generator" content="Hugo 0.121.2">
     <meta name="generator" content="Relearn 5.7.0+tip">
     <meta name="description" content="">
-    <title>Tags :: Appclacks documentation</title>
-    <link href="/tags/index.xml" rel="alternate" type="application/rss+xml" title="Tags :: Appclacks documentation">
+    <title>Kubernetes operator :: Appclacks documentation</title>
+    <link href="/healthcheck/kubernetes/index.xml" rel="alternate" type="application/rss+xml" title="Kubernetes operator :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
     <link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet"></noscript>
     <link href="/css/featherlight.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721573121" rel="stylesheet"></noscript>
@@ -40,26 +40,37 @@
     </script>
     <script src="/js/jquery.min.js?1721573121" defer></script>
   </head>
-  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/tags/index.html">
+  <body class="mobile-support html disableInlineCopyToClipboard" data-url="/healthcheck/kubernetes/index.html">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable" dir="ltr">
         <div>
           <div class="navigation">
-            <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+            <a class="nav nav-next" href="/pushgateway/index.html" title="Push gateway (&#129106;)"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-            <a class="nav nav-prev" href="/index.html" title="Appclacks (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
+            <a class="nav nav-prev" href="/healthcheck/terraform/index.html" title="Terraform integration (&#129104;)"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
               <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
             </span>
+            <span id="toc-menu" title='Table of Contents (CTRL+ALT+t)'><i class="fas fa-list-alt fa-fw"></i></span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Appclacks</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Tags</span><meta itemprop="position" content="2"></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/healthcheck/index.html"><span itemprop="name">Health checks</span></a><meta itemprop="position" content="2"> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Kubernetes operator</span><meta itemprop="position" content="3"></li>
             </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="toc-wrapper" dir="ltr">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#getting-started">Getting started</a></li>
+  </ul>
+</nav>
+            </div>
           </div>
         </div>
       </nav>
@@ -67,14 +78,40 @@
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <article>
-<h1 id="tags">Tags</h1>
-<ul>
-</ul>
+          <article class="default">
+<h1 id="kubernetes-operator">Kubernetes operator</h1>
+
+<p>We provide a Kubernetes operator that allows you to configure health checks on Appclacks using Kubernetes Custom Resources Definitions (CRD).</p>
+<p>The operator source code is available <a href="https://github.com/appclacks/operator">on Github</a>. CRD examples are available in the <a href="https://github.com/appclacks/operator/tree/main/config/samples">config/samples</a> directory.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>You can install the operator on your Kubernetes cluster by following this documentation. We plan to provide an Helm chart in a near future to deploy it.</p>
+<p><strong>Creating the required CRDs</strong></p>
+<p>All CRD files present in <a href="https://github.com/appclacks/operator/tree/main/config/crd/bases">this directory on Github</a> should be applied to your cluster.</p>
+<p><strong>Deploying the operator</strong></p>
+<p>The operator and its resources will be created in a namespace named <code>appclacks</code>.</p>
+<p>If you need to inject environment variables secrets for authentication in the operator (see the <a href="/getting-started/#environment-variables">standard Appclacks environment variables</a>), you can add them in the <a href="https://github.com/appclacks/operator/blob/main/config/deployment/secret.yaml">secret.yaml</a> file and then apply it (using <code>kubect apply -f secret.yaml</code>).</p>
+<p>Once done, you can apply in the same way the other files present in <a href="https://github.com/appclacks/operator/tree/main/config/deployment">the deployment directory</a>.</p>
+<p><strong>Testing the operator</strong></p>
+<p>Create a simple DNS health checks using <code>kubectl apply -f</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">healthchecks.appclacks.com/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">DNSHealthcheck</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dnshealthcheck-sample</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">appclacks</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">example</span>: <span style="color:#ae81ff">label</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">domain</span>: <span style="color:#ae81ff">appclacks.com</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">interval</span>: <span style="color:#ae81ff">35s</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">timeout</span>: <span style="color:#ae81ff">10s</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;dns health check example&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><p>Examples for each health check kind (HTTP, TCP, TLS, Command, DNS) are available <a href="https://github.com/appclacks/operator/tree/main/config/samples">on Github</a>.</p>
 
             <footer class="footline">
             </footer>
-          </article>        </div>
+          </article>
+        </div>
       </main>
     </div>
     <aside id="sidebar" class="default-animation" dir="ltr">
@@ -109,11 +146,11 @@
       <div id="content-wrapper" class="highlightable">
         <ul class="topics">
           <li data-nav-id="/getting-started/index.html" class="dd-item"><a href="/getting-started/index.html">Getting Started</a></li>
-          <li data-nav-id="/healthcheck/index.html" class="dd-item alwaysopen"><a href="/healthcheck/index.html">Health checks</a><ul id="subsections-350e91393d8d560a62f646e8a7f6ab85">
+          <li data-nav-id="/healthcheck/index.html" class="dd-item parent alwaysopen"><a href="/healthcheck/index.html">Health checks</a><ul id="subsections-350e91393d8d560a62f646e8a7f6ab85">
           <li data-nav-id="/healthcheck/cli/index.html" class="dd-item"><a href="/healthcheck/cli/index.html">Managing health checks using the Appclacks CLI</a></li>
           <li data-nav-id="/healthcheck/cabourotte/index.html" class="dd-item"><a href="/healthcheck/cabourotte/index.html">Running Cabourotte to execute the health checks</a></li>
           <li data-nav-id="/healthcheck/terraform/index.html" class="dd-item"><a href="/healthcheck/terraform/index.html">Terraform integration</a></li>
-          <li data-nav-id="/healthcheck/kubernetes/index.html" class="dd-item"><a href="/healthcheck/kubernetes/index.html">Kubernetes operator</a></li></ul></li>
+          <li data-nav-id="/healthcheck/kubernetes/index.html" class="dd-item active"><a href="/healthcheck/kubernetes/index.html">Kubernetes operator</a></li></ul></li>
           <li data-nav-id="/pushgateway/index.html" class="dd-item alwaysopen"><a href="/pushgateway/index.html">Push gateway</a><ul id="subsections-17147483427d6fa09d6b6bec5b0250ce">
           <li data-nav-id="/pushgateway/cli/index.html" class="dd-item"><a href="/pushgateway/cli/index.html">Managing metrics using the Appclacks CLI</a></li></ul></li>
           <li data-nav-id="/observability/index.html" class="dd-item"><a href="/observability/index.html">Observability</a></li>

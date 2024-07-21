@@ -6,19 +6,80 @@ archetype: default
 
 This guide explains how to use the Appclacks CLI to create your first health check on Appclacks.
 
-## Creating your organization
+## Architecture
 
-To use the platform, you should subscribe to it on the Appclacks [main website](https://appclacks.com/#register). You will then receive an email with an activation link.
+## Run the server
 
-The email will also provide you the ID of your organization.
+In order to run Appclacks server, you need to deploy its [server](https://github.com/appclacks/server).
 
-For now, an organization can only contain one account that is automatically generated when the organization is created. Supporting multiple accounts within the same organization is in the roadmap.
+The Appclacks server requires a PostgreSQL database to run.
 
-You should now be able to log in in the [Appclacks user interface](https://api.appclacks.com). This interface is today a read-only one, using the CLI or other integrations are required to create resources.
+### Configuration file
+
+The Appclacks server requires a configuration file to run:
+
+```yaml
+---
+# Configuration of the HTTP server
+http:
+  # IP to listen to, mandatory
+  host: 127.0.0.1
+  # Port to listen to, mandatory
+  port: 9000
+  # Basic auth credentials for the server, optional
+  basic-auth:
+    username: "foo"
+    password: "bar"
+  # TLS key, optional
+  key: "/path/to/key-file.key"
+  # TLS cert, optional
+  cert: "/path/to/cert-file.pem"
+  # TLS cacert, optional
+  cacert: "/path/to/cacert-file.pem"
+  # Enable TLS insecure, optional
+  insecure: false
+  # TLS server name, optional
+  server-name: "my.host"
+  # Prometheus metrics configuration, optional
+  metrics:
+    # Enable basic auth on Prometheus metrics endpoints, optional
+    basic-auth:
+      username: metric-user
+      password: metric-password
+# Database configuration
+database:
+  # database username, mandatory
+  username: "appclacks"
+  # database password, mandatory
+  password: "appclacks"
+  # database name, mandatory
+  database: "appclacks"
+  # database host, mandatory
+  host: "127.0.0.1"
+  # database port, mandatory
+  port: 5432
+  # SSL mode (optional): see the PostgreSQL documentation for possible values: https://www.postgresql.org/docs/current/libpq-ssl.html
+  ssl-mode: disable
+# Healthcheck configuration section
+```
+
+### Run the server using Docker
+
+Appclacks server images are [https://hub.docker.com/r/appclacks/server/tags](available on the Docker Hub).
+
+A docker-compose file running the Appclacks server, PostgreSQL, and Cabourotte is available [https://github.com/appclacks/server/blob/main/docker-compose.yaml](On github).
+
+### Run the server using the prebuilt binaries
+
+Appclacks server binaries can be found on [https://github.com/appclacks/server/releases](Github).
+
+You can you the binary with the command `appclacks-server server --config <path-to-config-file>`.
+
+Log level can be configured with the `--log-level` flag (debug, info, warn, error) and log formats by the `--log-format` one (text, json).
 
 ## Installing the Appclacks CLI
 
-We provide a full-featured [command line interface](https://github.com/appclacks/cli) to interact with the platform.
+We provide a full-featured [command line interface](https://github.com/appclacks/cli) to interact with the Appclacks server.
 
 **MacOS**
 
@@ -34,57 +95,24 @@ To install the CLI from the prebuilt binaries, you should:
 - Unarchive it and add the `appclacks` binary into your path.
 - `appclacks help` should work and give you information about the appclacks CLI. Each subcommands described in this page have a lot of options availables and all of them supports an `--help` flag (for example: `appclacks healthcheck http create --help`).
 
-## Authentication
+### Environment variables
 
-You need an API token in order to interact with the Appclacks cloud platform.
+The Appclacks CLI (and actually all Appclacks tooling and SDK) supports several environment variables to configure it:
 
-Run `appclacks login` to configure authentication. The command will ask you several informations:
-- A profile name: i'll allow you to manage multiple appclacks accounts by selecting the profile to use in commands. If you don't have any profile configured, the first created profile will be the default one
-- Your Appclacks account email
-- Your Appclacks account password
+- `APPCLACKS_API_ENDPOINT`: the Appclacks API endpoint
+- `APPCLACKS_USERNAME`: optional basic auth username
+- `APPCLACKS_PASSWORD`: optional basic auth password
+- `APPCLACKS_TLS_KEY`: optional path to a TLS key file for mTLS
+- `APPCLACKS_TLS_CERT`: optional path to a TLS cert file for mTLS
+- `APPCLACKS_TLS_CACERT`: optional path to a TLS cacert file for mTLS
+- `APPCLACKS_TLS_INSECURE`: optional insecure configuration for TLS
 
-An authentication token will be automatically created for your account. A configuration file will be created in your OS configuration directory (`$HOME/.config/appclacks/appaclacks.yaml` on Linux, see [this Golang function](https://pkg.go.dev/os#UserConfigDir) for other platforms) and automatically picked by the CLI.
+## Testing the Appclacks CLI
 
-You should now be able to successfully run commands, for example `appclacks healthcheck list`.
+- Clone the [https://github.com/appclacks/server/](Appclacks server repository).
+- Run `docker compose up -d` to start all components
+- Run `export APPCLACKS_API_ENDPOINT='http://localhost:9000'`
+- Run `appclacks healthcheck http create --name "test" --target "localhost" --protocol http --port 9000 --path /healthz` to create your first health check
+- Run `appclacks healthcheck list` to list health checks
 
-## Create your first health checks
 
-Let's create an HTTP health check targeting `GET https://api.appclacks.com/healthz` every 30 seconds:
-
-```shell
-appclacks healthcheck http create api.appclacks.com --target api.appclacks.com --path "/healthz" --name "http-check-example"
-
-ID                                    Name                Description  Interval  Timeout  Labels  Enabled  Definition
---                                    ----                -----------  --------  -------  ------  -------  ----------
-d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  http-check-example               60s       5s       null    true     {"valid-status":[200],"target":"api.appclacks.com","method":"GET","port":443,"redirect":true,"protocol":"https","path":"/healthz"}
-```
-
-Appclacks will start executing the health check from multiple countries.
-
-You can then list your health checks with `appclacks healthcheck list`, or retrieve its configuration with `appclacks healthcheck get --name http-check-example` (or `--id d9b17d26-a4cd-47f0-86c0-6cf02069a9dc`).
-
-## Retrieving health check results
-
-Retrieve health checks results executed by Appclacks by launching `appclacks healthcheck result list --healthcheck-id d9b17d26-a4cd-47f0-86c0-6cf02069a9dc`:
-
-```
-appclacks healthcheck result list --healthcheck-id d9b17d26-a4cd-47f0-86c0-6cf02069a9dc
-ID                                    Created At                     Success  Duration (ms)  Summary                                    Message  Healthcheck ID                        Labels
---                                    ----------                     -------  -------------  -------                                    -------  --------------                        ------
-f4a3f05f-4d89-415b-b189-c42e467d9f06  2024-01-10 21:39:56 +0000 UTC  true     5              HTTP healthcheck on api.appclacks.com:443  success  d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  {"healthcheck_name":"http-check-example","zone":"eu-west"}
-d32c246c-5ac8-473e-ac9a-1b100e4a6457  2024-01-10 21:39:56 +0000 UTC  true     37             HTTP healthcheck on api.appclacks.com:443  success  d9b17d26-a4cd-47f0-86c0-6cf02069a9dc  {"healthcheck_name":"http-check-example","zone":"eu-east"}
-```
-
-Appclacks commands also support JSON outputs by passing the `-o json` flag.
-
-## Retrieving health check metrics
-
-You can retrieve health checks metrics in Prometheus format by running `appclacks healthcheck metrics get`. The [Prometheus integration documentation](https://www.doc.appclacks.com/guides/metrics/) explains how to configure Prometheus (or any Prometheus-compatible tool) to scrape Appclacks metrics.
-
-## Going further
-
-The dedicated [health check documentation page](/guides/healthcheck/) explains all health checks kinds and options available on Appclacks.
-
-The [guides](/guides/) will deep dive on topics like Terraform, Kubernetes, Prometheus integrations, or how to run Appclacks health checks on your private infrastructure.
-
-Happy monitoring !
