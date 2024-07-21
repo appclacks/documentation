@@ -20,6 +20,7 @@ All CRD files present in [this directory on Github](https://github.com/appclacks
 The operator and its resources will be created in a namespace named `appclacks`.
 
 If you need to inject environment variables secrets for authentication in the operator (see the [standard Appclacks environment variables](/getting-started/#environment-variables)), you can add them in the [secret.yaml](https://github.com/appclacks/operator/blob/main/config/deployment/secret.yaml) file and then apply it (using `kubect apply -f secret.yaml`).
+You should also configure in this file the `APPCLACKS_API_ENDPOINT` variable.
 
 Once done, you can apply in the same way the other files present in [the deployment directory](https://github.com/appclacks/operator/tree/main/config/deployment).
 
