@@ -109,10 +109,12 @@ The Appclacks CLI (and actually all Appclacks tooling and SDK) supports several 
 
 ## Testing the Appclacks CLI
 
-- Clone the [https://github.com/appclacks/server/](Appclacks server repository).
+- Clone the [Appclacks server repository](https://github.com/appclacks/server).
 - Run `docker compose up -d` to start all components
 - Run `export APPCLACKS_API_ENDPOINT='http://localhost:9000'`
-- Run `appclacks healthcheck http create --name "test" --target "localhost" --protocol http --port 9000 --path /healthz` to create your first health check
+- Once the CLI is [installed](/getting-started/#installing-the-appclacks-cli), run `appclacks healthcheck http create --name "test" --target "localhost" --protocol http --port 9000 --path /healthz` to create your first health check
 - Run `appclacks healthcheck list` to list health checks
+- Run `curl localhost:9013/metrics` to get metrics about your health checks in Prometheus format.
 
+You can now explore the various health check types and options and discover the Appclacks tooling (CLI commands, Terraform provider, Kubernetes operator...) on the [health check section](/healthcheck/index.html) of the documentation.
 

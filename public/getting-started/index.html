@@ -9,19 +9,19 @@
     <title>Getting Started :: Appclacks documentation</title>
     <link href="/getting-started/index.xml" rel="alternate" type="application/rss+xml" title="Getting Started :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1721975446" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721975446" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1721975446" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721975446" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1721975446" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1721975446" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1721975446" rel="stylesheet">
-    <link href="/css/nucleus.css?1721975446" rel="stylesheet">
-    <link href="/css/fonts.css?1721975446" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1721975446" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1721975446" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1721975446" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1721975446" rel="stylesheet">
-    <link href="/css/variant.css?1721975446" rel="stylesheet">
-    <link href="/css/print.css?1721975446" rel="stylesheet" media="print">
-    <script src="/js/url.js?1721975446"></script>
-    <script src="/js/variant.js?1721975446"></script>
+    <link href="/css/fontawesome-all.min.css?1721976222" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721976222" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1721976222" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721976222" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1721976222" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1721976222" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1721976222" rel="stylesheet">
+    <link href="/css/nucleus.css?1721976222" rel="stylesheet">
+    <link href="/css/fonts.css?1721976222" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1721976222" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1721976222" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1721976222" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1721976222" rel="stylesheet">
+    <link href="/css/variant.css?1721976222" rel="stylesheet">
+    <link href="/css/print.css?1721976222" rel="stylesheet" media="print">
+    <script src="/js/url.js?1721976222"></script>
+    <script src="/js/variant.js?1721976222"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1721975446" defer></script>
+    <script src="/js/jquery.min.js?1721976222" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/getting-started/index.html">
     <div id="body" class="default-animation">
@@ -174,12 +174,14 @@
 </ul>
 <h2 id="testing-the-appclacks-cli">Testing the Appclacks CLI</h2>
 <ul>
-<li>Clone the [https://github.com/appclacks/server/](Appclacks server repository).</li>
+<li>Clone the <a href="https://github.com/appclacks/server">Appclacks server repository</a>.</li>
 <li>Run <code>docker compose up -d</code> to start all components</li>
 <li>Run <code>export APPCLACKS_API_ENDPOINT='http://localhost:9000'</code></li>
-<li>Run <code>appclacks healthcheck http create --name &quot;test&quot; --target &quot;localhost&quot; --protocol http --port 9000 --path /healthz</code> to create your first health check</li>
+<li>Once the CLI is <a href="/getting-started/#installing-the-appclacks-cli">installed</a>, run <code>appclacks healthcheck http create --name &quot;test&quot; --target &quot;localhost&quot; --protocol http --port 9000 --path /healthz</code> to create your first health check</li>
 <li>Run <code>appclacks healthcheck list</code> to list health checks</li>
+<li>Run <code>curl localhost:9013/metrics</code> to get metrics about your health checks in Prometheus format.</li>
 </ul>
+<p>You can now explore the various health check types and options and discover the Appclacks tooling (CLI commands, Terraform provider, Kubernetes operator&hellip;) on the <a href="/healthcheck/index.html">health check section</a> of the documentation.</p>
 
             <footer class="footline">
             </footer>
@@ -204,12 +206,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1721975446" defer></script>
-        <script src="/js/lunr.min.js?1721975446" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1721975446" defer></script>
-        <script src="/js/lunr.multi.min.js?1721975446" defer></script>
-        <script src="/js/lunr.en.min.js?1721975446" defer></script>
-        <script src="/js/search.js?1721975446" defer></script>
+        <script src="/js/auto-complete.js?1721976222" defer></script>
+        <script src="/js/lunr.min.js?1721976222" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1721976222" defer></script>
+        <script src="/js/lunr.multi.min.js?1721976222" defer></script>
+        <script src="/js/lunr.en.min.js?1721976222" defer></script>
+        <script src="/js/search.js?1721976222" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -274,9 +276,9 @@
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1721975446" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1721975446" defer></script>
-    <script src="/js/featherlight.min.js?1721975446" defer></script>
-    <script src="/js/theme.js?1721975446" defer></script>
+    <script src="/js/clipboard.min.js?1721976222" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1721976222" defer></script>
+    <script src="/js/featherlight.min.js?1721976222" defer></script>
+    <script src="/js/theme.js?1721976222" defer></script>
   </body>
 </html>
