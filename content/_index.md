@@ -13,7 +13,7 @@ Appclacks server is part of the Appclacks ecosystem. This website will focus on 
 **Blackbox monitoring**
 
 Appclacks server can be used to monitor public or private endpoints by executing configured health checks on them from multiple point of presences.
-The prober used by Appclacks named Cabourotte [is a free software](https://github.com/appclacks/cabourotte) that you can host on your private infrastructure and plug on the Appclacks API server to autoconfigure it.
+The prober used by Appclacks server is named Cabourotte and [is a free software](https://github.com/appclacks/cabourotte) that you can host on your private infrastructure and plug on the Appclacks API server to autoconfigure it.
 
 This flexibility allows you to manage your health checks globally without having to use a different tool for public and for private infrastructures.
 

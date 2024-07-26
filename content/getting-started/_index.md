@@ -65,9 +65,9 @@ database:
 
 ### Run the server using Docker
 
-Appclacks server images are [https://hub.docker.com/r/appclacks/server/tags](available on the Docker Hub).
+Appclacks server images are [available on the docker hub](https://hub.docker.com/r/appclacks/server/tags).
 
-A docker-compose file running the Appclacks server, PostgreSQL, and Cabourotte is available [https://github.com/appclacks/server/blob/main/docker-compose.yaml](On github).
+A docker-compose file running the Appclacks server, PostgreSQL, and Cabourotte is available [on github](https://github.com/appclacks/server/blob/main/docker-compose.yaml).
 
 ### Run the server using the prebuilt binaries
 

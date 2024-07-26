@@ -9,19 +9,19 @@
     <title>Kubernetes operator :: Appclacks documentation</title>
     <link href="/healthcheck/kubernetes/index.xml" rel="alternate" type="application/rss+xml" title="Kubernetes operator :: Appclacks documentation">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721573121" rel="stylesheet"></noscript>
-    <link href="/css/featherlight.min.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721573121" rel="stylesheet"></noscript>
-    <link href="/css/auto-complete.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1721573121" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1721573121" rel="stylesheet">
-    <link href="/css/nucleus.css?1721573121" rel="stylesheet">
-    <link href="/css/fonts.css?1721573121" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1721573121" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1721573121" rel="stylesheet">
-    <link href="/css/theme-appclacks.css?1721573121" rel="stylesheet" id="variant-style">
-    <link href="/css/ie.css?1721573121" rel="stylesheet">
-    <link href="/css/variant.css?1721573121" rel="stylesheet">
-    <link href="/css/print.css?1721573121" rel="stylesheet" media="print">
-    <script src="/js/url.js?1721573121"></script>
-    <script src="/js/variant.js?1721573121"></script>
+    <link href="/css/fontawesome-all.min.css?1721975446" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1721975446" rel="stylesheet"></noscript>
+    <link href="/css/featherlight.min.css?1721975446" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/featherlight.min.css?1721975446" rel="stylesheet"></noscript>
+    <link href="/css/auto-complete.css?1721975446" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1721975446" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1721975446" rel="stylesheet">
+    <link href="/css/nucleus.css?1721975446" rel="stylesheet">
+    <link href="/css/fonts.css?1721975446" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1721975446" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1721975446" rel="stylesheet">
+    <link href="/css/theme-appclacks.css?1721975446" rel="stylesheet" id="variant-style">
+    <link href="/css/ie.css?1721975446" rel="stylesheet">
+    <link href="/css/variant.css?1721975446" rel="stylesheet">
+    <link href="/css/print.css?1721975446" rel="stylesheet" media="print">
+    <script src="/js/url.js?1721975446"></script>
+    <script src="/js/variant.js?1721975446"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -38,7 +38,7 @@
       var baseUriFull='https:\/\/www.doc.appclacks.com/';
       window.variants && variants.init( [ 'appclacks' ] );
     </script>
-    <script src="/js/jquery.min.js?1721573121" defer></script>
+    <script src="/js/jquery.min.js?1721975446" defer></script>
   </head>
   <body class="mobile-support html disableInlineCopyToClipboard" data-url="/healthcheck/kubernetes/index.html">
     <div id="body" class="default-animation">
@@ -89,7 +89,8 @@
 <p>All CRD files present in <a href="https://github.com/appclacks/operator/tree/main/config/crd/bases">this directory on Github</a> should be applied to your cluster.</p>
 <p><strong>Deploying the operator</strong></p>
 <p>The operator and its resources will be created in a namespace named <code>appclacks</code>.</p>
-<p>If you need to inject environment variables secrets for authentication in the operator (see the <a href="/getting-started/#environment-variables">standard Appclacks environment variables</a>), you can add them in the <a href="https://github.com/appclacks/operator/blob/main/config/deployment/secret.yaml">secret.yaml</a> file and then apply it (using <code>kubect apply -f secret.yaml</code>).</p>
+<p>If you need to inject environment variables secrets for authentication in the operator (see the <a href="/getting-started/#environment-variables">standard Appclacks environment variables</a>), you can add them in the <a href="https://github.com/appclacks/operator/blob/main/config/deployment/secret.yaml">secret.yaml</a> file and then apply it (using <code>kubect apply -f secret.yaml</code>).
+You should also configure in this file the <code>APPCLACKS_API_ENDPOINT</code> variable.</p>
 <p>Once done, you can apply in the same way the other files present in <a href="https://github.com/appclacks/operator/tree/main/config/deployment">the deployment directory</a>.</p>
 <p><strong>Testing the operator</strong></p>
 <p>Create a simple DNS health checks using <code>kubectl apply -f</code>:</p>
@@ -131,12 +132,12 @@
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1721573121" defer></script>
-        <script src="/js/lunr.min.js?1721573121" defer></script>
-        <script src="/js/lunr.stemmer.support.min.js?1721573121" defer></script>
-        <script src="/js/lunr.multi.min.js?1721573121" defer></script>
-        <script src="/js/lunr.en.min.js?1721573121" defer></script>
-        <script src="/js/search.js?1721573121" defer></script>
+        <script src="/js/auto-complete.js?1721975446" defer></script>
+        <script src="/js/lunr.min.js?1721975446" defer></script>
+        <script src="/js/lunr.stemmer.support.min.js?1721975446" defer></script>
+        <script src="/js/lunr.multi.min.js?1721975446" defer></script>
+        <script src="/js/lunr.en.min.js?1721975446" defer></script>
+        <script src="/js/search.js?1721975446" defer></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -201,9 +202,9 @@
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1721573121" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1721573121" defer></script>
-    <script src="/js/featherlight.min.js?1721573121" defer></script>
-    <script src="/js/theme.js?1721573121" defer></script>
+    <script src="/js/clipboard.min.js?1721975446" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1721975446" defer></script>
+    <script src="/js/featherlight.min.js?1721975446" defer></script>
+    <script src="/js/theme.js?1721975446" defer></script>
   </body>
 </html>
