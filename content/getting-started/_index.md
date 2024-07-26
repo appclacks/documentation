@@ -107,14 +107,14 @@ The Appclacks CLI (and actually all Appclacks tooling and SDK) supports several 
 - `APPCLACKS_TLS_CACERT`: optional path to a TLS cacert file for mTLS
 - `APPCLACKS_TLS_INSECURE`: optional insecure configuration for TLS
 
-## Testing the Appclacks CLI
+## Testing everything using docker compose
 
 - Clone the [Appclacks server repository](https://github.com/appclacks/server).
 - Run `docker compose up -d` to start all components
 - Run `export APPCLACKS_API_ENDPOINT='http://localhost:9000'`
 - Once the CLI is [installed](/getting-started/#installing-the-appclacks-cli), run `appclacks healthcheck http create --name "test" --target "localhost" --protocol http --port 9000 --path /healthz` to create your first health check
 - Run `appclacks healthcheck list` to list health checks
-- Run `curl localhost:9013/metrics` to get metrics about your health checks in Prometheus format.
+- Run `curl localhost:9013/metrics` to get metrics about your health checks in Prometheus format (see [Cabourotte documentation](https://cabourotte.appclacks.com/installation/monitoring/) for more details about metrics)
 
 You can now explore the various health check types and options and discover the Appclacks tooling (CLI commands, Terraform provider, Kubernetes operator...) on the [health check section](/healthcheck/index.html) of the documentation.
 
