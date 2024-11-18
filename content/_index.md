@@ -8,7 +8,7 @@ chapter: false
 
 Appclacks server provides several observability-related features.
 
-Appclacks server is part of the Appclacks ecosystem. This website will focus on the documentation of the Appclacks server, other tools maintained by Appclacks having dedicated documentation websites that you can find in the [Appclacks main page](appclacks.com)
+Appclacks server is part of the Appclacks ecosystem. This website will focus on the documentation of the Appclacks server, other tools maintained by Appclacks having dedicated documentation websites that you can find in the [Appclacks main page](https://appclacks.com)
 
 **Blackbox monitoring**
 
